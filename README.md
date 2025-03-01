@@ -1,18 +1,20 @@
 [![PyPI-Server](https://img.shields.io/pypi/v/SpatialFeatureExperiment.svg)](https://pypi.org/project/SpatialFeatureExperiment/)
-![Unit tests](https://github.com/BiocPy/SpatialFeatureExperiment/actions/workflows/pypi-test.yml/badge.svg)
+![Unit tests](https://github.com/BiocPy/SpatialFeatureExperiment/actions/workflows/run-tests.yml/badge.svg)
 
 # SpatialFeatureExperiment
 
-> Add a short description here!
+A Python package for storing and analyzing spatial-omics experimental data. This package provide the `SpatialFeatureExperiment` class, based on the [R package and class](https://github.com/pachterlab/SpatialFeatureExperiment).
 
-A longer description of your project goes here...
+> [!NOTE]
+>
+> This package is not published to PyPI.
 
 ## Install
 
 To get started, install the package from [PyPI](https://pypi.org/project/SpatialFeatureExperiment/)
 
 ```bash
-pip install SpatialFeatureExperiment
+pip install spatialfeatureexperiment
 ```
 
 <!-- biocsetup-notes -->
