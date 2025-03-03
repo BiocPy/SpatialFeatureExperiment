@@ -1,0 +1,21 @@
+spatialfeatureexperiment package
+================================
+
+Submodules
+----------
+
+spatialfeatureexperiment.SpatialFeatureExperiment module
+--------------------------------------------------------
+
+.. automodule:: spatialfeatureexperiment.SpatialFeatureExperiment
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: spatialfeatureexperiment
+   :members:
+   :show-inheritance:
+   :undoc-members:
