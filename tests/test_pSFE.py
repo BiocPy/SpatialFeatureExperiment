@@ -1,6 +1,6 @@
 import pytest
 from PIL import Image
-from spatialexperiment import ProxySpatialFeatureExperiment
+from spatialfeatureexperiment import SpatialFeatureExperiment
 import numpy as np
 import geopandas as gpd
 from shapely.geometry import Polygon
@@ -13,14 +13,14 @@ def test_init_basic():
     nrows = 200
     ncols = 500
     counts = np.random.rand(nrows, ncols)
-    tspe = ProxySpatialFeatureExperiment(assays={"spots": counts})
+    tspe = SpatialFeatureExperiment(assays={"spots": counts})
 
-    assert isinstance(tspe, ProxySpatialFeatureExperiment)
+    assert isinstance(tspe, SpatialFeatureExperiment)
 
 def test_init_empty():
-    tspe = ProxySpatialFeatureExperiment()
+    tspe = SpatialFeatureExperiment()
 
-    assert isinstance(tspe, ProxySpatialFeatureExperiment)
+    assert isinstance(tspe, SpatialFeatureExperiment)
 
 def test_init_with_col_geoms():
     nrows = 200
@@ -34,6 +34,6 @@ def test_init_with_col_geoms():
     )
 
     colgeoms = {"polygons" : gpd.GeoDataFrame({"geometry": polys})}
-    tspe = ProxySpatialFeatureExperiment(assays={"spots": counts}, col_geometries=colgeoms)
+    tspe = SpatialFeatureExperiment(assays={"spots": counts}, col_geometries=colgeoms)
 
-    assert isinstance(tspe, ProxySpatialFeatureExperiment)
+    assert isinstance(tspe, SpatialFeatureExperiment)
