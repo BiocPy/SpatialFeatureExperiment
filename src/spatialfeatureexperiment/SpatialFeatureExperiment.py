@@ -47,7 +47,7 @@ def _validate_geometries(geometries: Dict[str, gpd.GeoDataFrame], prop_name: str
 
     for i, geom in enumerate(geometries.values()):
         if not isinstance(geom, gpd.GeoDataFrame):
-            raise TypeError(f"Item {i} in {prop_name} is {type(geom).__name__} " f"rather than `GeoDataFrame`.\n")
+            raise TypeError(f"Item {i} in {prop_name} is {type(geom).__name__} rather than `GeoDataFrame`.\n")
 
 
 def _validate_annotgeometries(geometries, column_data):
@@ -67,7 +67,7 @@ def _validate_annotgeometries(geometries, column_data):
             missing = [s for s in samples_seen if s not in sample_ids]
             if len(missing) > 0:
                 raise ValueError(
-                    f"Samples {', '.join(missing)} in item {i} of " f"annot_geometries are absent from 'column_data'.\n"
+                    f"Samples {', '.join(missing)} in item {i} of annot_geometries are absent from 'column_data'.\n"
                 )
 
 
