@@ -241,6 +241,9 @@ class SpatRasterImage(AlignedSpatialImage):
 
     @property
     def shape(self):
+        return self.get_dimensions()
+
+    def get_dimensions(self):
         """Get the shape of the image (height, width, channels)."""
         if hasattr(self, "_src") and self._src is not None:
             return (self._src.height, self._src.width, self._src.count)
@@ -272,7 +275,7 @@ class BioFormatsImage(AlignedSpatialImage):
     def __init__(
         self,
         path: Union[str, Path],
-        extent: Dict[str, float],
+        extent: Dict[str, float] = None,
         is_full: bool = True,
         origin: List[float] = [0.0, 0.0],
         tranformation: dict = None,
@@ -398,7 +401,7 @@ class BioFormatsImage(AlignedSpatialImage):
         """String representation"""
         dims = self.dimensions
 
-        output = f"{type(self).__name__}"
+        output = f"{type(self).__name__}("
 
         output += f"X: {dims[0]}, Y: {dims[1]}, C: {dims[2]}, Z: {dims[3]}, T: {dims[4]}"
 
@@ -442,6 +445,48 @@ class BioFormatsImage(AlignedSpatialImage):
 
     def to_ext_image(self, resolution=4, channel=None):
         raise NotImplementedError("Not yet implemented!")
+
+    def img_raster(self, resolution=4, channel=None):
+        """Load the image.
+
+        Returns:
+            Image data.
+        """
+        return self.to_ext_image(resolution=resolution, channel=channel)
+
+    def get_dimensions(self):
+        """Get the dimensions of the image (X, Y, C, Z, T)"""
+
+        from aicsimageio import AICSImage
+
+        try:
+            with AICSImage(self.path) as img:
+                shape = img.shape
+
+                # AICSImage dimensions order is (T, Z, Y, X, C)
+                # Convert to (X, Y, C, Z, T) for compatibility with R's BioFormatsImage
+                if len(shape) == 5:
+                    t, z, y, x, c = shape
+                    return [x, y, c, z, t]
+                elif len(shape) == 4:
+                    # Handle 4D images (assume missing T dimension)
+                    z, y, x, c = shape
+                    return [x, y, c, z, 1]
+                elif len(shape) == 3:
+                    # Handle 3D images (assume missing Z and T dimensions)
+                    y, x, c = shape
+                    return [x, y, c, 1, 1]
+                elif len(shape) == 2:
+                    # Handle 2D images (assume single channel, Z and T)
+                    y, x = shape
+                    return [x, y, 1, 1, 1]
+                else:
+                    warn(f"Unexpected image shape: {shape}")
+                    return [0, 0, 0, 0, 0]
+
+        except Exception as e:
+            warn(f"Error reading OME-TIFF metadata: {e}")
+            return [0, 0, 0, 0, 0]
 
 
 class ExtImage(AlignedSpatialImage):
@@ -546,8 +591,20 @@ class ExtImage(AlignedSpatialImage):
     @property
     def shape(self):
         """Get the shape of the image (height, width, channels)."""
+        return self.get_dimensions()
+
+    def get_dimensions(self):
+        """Get the shape of the image (height, width, channels)."""
         return self._array.shape
 
     def to_pil(self):
         """Convert to PIL Image."""
         return Image.fromarray(self._array)
+
+    def img_raster(self) -> Image.Image:
+        """Load the image.
+
+        Returns:
+            Image data.
+        """
+        return self.to_pil()
