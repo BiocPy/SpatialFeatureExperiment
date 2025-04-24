@@ -78,8 +78,6 @@ def test_create_bioformats_image(temp_ome_tiff):
 def test_with_sfe(temp_ome_tiff):
     bfi = BioFormatsImage(temp_ome_tiff)
 
-    print(bfi)
-
     sfe = SpatialFeatureExperiment()
     sfe.add_img(image_source=bfi, scale_factor=False, sample_id="sample1", image_id="ome_tiff", in_place=True)
 
