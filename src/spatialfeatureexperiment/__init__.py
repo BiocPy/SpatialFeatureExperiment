@@ -15,4 +15,5 @@ except PackageNotFoundError:  # pragma: no cover
 finally:
     del version, PackageNotFoundError
 
-from .SpatialFeatureExperiment import SpatialFeatureExperiment
+from .aligned_spatialimage import BioFormatsImage, ExtImage, SpatRasterImage
+from .spatialfeatureexperiment import SpatialFeatureExperiment
