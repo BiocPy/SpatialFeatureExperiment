@@ -22,19 +22,16 @@ def sample_array():
 
 @pytest.fixture
 def sample_extent():
-    """Create a sample extent dictionary"""
     return {"xmin": 0, "xmax": 100, "ymin": 0, "ymax": 50}
 
 
 @pytest.fixture
 def ext_image(sample_array, sample_extent):
-    """Create a sample ExtImage"""
     return ExtImage(sample_array, sample_extent)
 
 
 @pytest.fixture
 def sfe_object():
-    """Create a sample SpatialFeatureExperiment object"""
     counts = np.random.negative_binomial(5, 0.5, (100, 50))
     coords = np.random.uniform(0, 1000, (100, 2))
     return SpatialFeatureExperiment(counts, coords)
