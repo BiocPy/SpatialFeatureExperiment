@@ -86,6 +86,6 @@ def test_with_sfe(temp_ome_tiff):
     sfe = SpatialFeatureExperiment()
     sfe.add_img(image_source=bfi, scale_factor=False, sample_id="sample1", image_id="ome_tiff", in_place=True)
 
-    img = sfe.get_image_data(sfe, sample_id="sample1", image_id="ome_tiff")
+    img = sfe.get_img(sample_id="sample1", image_id="ome_tiff")
     assert img is not None
     assert img.shape == bfi.shape
