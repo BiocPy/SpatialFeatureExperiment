@@ -488,6 +488,9 @@ class BioFormatsImage(AlignedSpatialImage):
             warn(f"Error reading OME-TIFF metadata: {e}")
             return [0, 0, 0, 0, 0]
 
+    @property
+    def shape(self):
+        return self.get_dimensions()
 
 class ExtImage(AlignedSpatialImage):
     """Use the PIL/numpy arrays in SpatialFeatureExperiment objects.
