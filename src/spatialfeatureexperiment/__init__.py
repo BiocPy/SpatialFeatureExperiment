@@ -16,4 +16,4 @@ finally:
     del version, PackageNotFoundError
 
 from .aligned_spatialimage import BioFormatsImage, ExtImage, SpatRasterImage
-from .spatialfeatureexperiment import SpatialFeatureExperiment
+from .sfe import SpatialFeatureExperiment
