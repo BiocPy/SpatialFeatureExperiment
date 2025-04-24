@@ -492,6 +492,7 @@ class BioFormatsImage(AlignedSpatialImage):
     def shape(self):
         return self.get_dimensions()
 
+
 class ExtImage(AlignedSpatialImage):
     """Use the PIL/numpy arrays in SpatialFeatureExperiment objects.
 
