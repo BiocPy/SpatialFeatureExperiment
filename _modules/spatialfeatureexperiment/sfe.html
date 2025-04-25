@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>spatialfeatureexperiment.SpatialFeatureExperiment - SpatialFeatureExperiment 0.0.1 documentation</title>
+        <title>spatialfeatureexperiment.sfe - SpatialFeatureExperiment 0.0.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -166,7 +166,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">SpatialFeatureExperiment 0.0.1 documentation</div></a>
+      <a href="../../index.html"><div class="brand">SpatialFeatureExperiment 0.0.2 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -190,7 +190,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">SpatialFeatureExperiment 0.0.1 documentation</span>
+  <span class="sidebar-brand-text">SpatialFeatureExperiment 0.0.2 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -242,7 +242,7 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <h1>Source code for spatialfeatureexperiment.SpatialFeatureExperiment</h1><div class="highlight"><pre>
+          <h1>Source code for spatialfeatureexperiment.sfe</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="kn">import</span> <span class="n">warn</span>
 
@@ -292,7 +292,7 @@
 
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">geom</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">geometries</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Item </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> in </span><span class="si">{</span><span class="n">prop_name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="sa">f</span><span class="s2">&quot;rather than `GeoDataFrame`.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Item </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> in </span><span class="si">{</span><span class="n">prop_name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> rather than `GeoDataFrame`.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_validate_annotgeometries</span><span class="p">(</span><span class="n">geometries</span><span class="p">,</span> <span class="n">column_data</span><span class="p">):</span>
@@ -312,7 +312,7 @@
             <span class="n">missing</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">samples_seen</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sample_ids</span><span class="p">]</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;Samples </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span><span class="si">}</span><span class="s2"> in item </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> of &quot;</span> <span class="sa">f</span><span class="s2">&quot;annot_geometries are absent from &#39;column_data&#39;.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Samples </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span><span class="si">}</span><span class="s2"> in item </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> of annot_geometries are absent from &#39;column_data&#39;.</span><span class="se">\n</span><span class="s2">&quot;</span>
                 <span class="p">)</span>
 
 
@@ -341,7 +341,7 @@
 
 
 <div class="viewcode-block" id="SpatialFeatureExperiment">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">SpatialFeatureExperiment</span><span class="p">(</span><span class="n">SpatialExperiment</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Container class for storing data from spatial-omics experiments with feature geometries.</span>
 
@@ -350,7 +350,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.__init__">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__init__">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">assays</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -563,7 +563,7 @@
     <span class="c1">#########################</span>
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.__deepcopy__">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__deepcopy__">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__deepcopy__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">__deepcopy__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">memo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_nil</span><span class="o">=</span><span class="p">[]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns:</span>
@@ -616,7 +616,7 @@
 
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.__copy__">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__copy__">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__copy__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">__copy__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns:</span>
@@ -647,7 +647,7 @@
 
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.copy">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.copy">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.copy">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Alias for :py:meth:`~__copy__`.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__copy__</span><span class="p">()</span></div>
@@ -658,7 +658,7 @@
     <span class="c1">##########################</span>
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.__repr__">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__repr__">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__repr__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get string representation.&quot;&quot;&quot;</span>
         <span class="n">output</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
@@ -710,14 +710,14 @@
     <span class="c1">####################</span>
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.get_unit">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_unit">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_unit">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_unit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the coordinate unit.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unit</span></div>
 
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.set_unit">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_unit">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_unit">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_unit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ProxySpatialFeatureExperiment&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the coordinate unit.</span>
 
@@ -758,28 +758,28 @@
     <span class="c1">#####################</span>
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.get_col_geometries">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_col_geometries">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_col_geometries">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_col_geometries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get column geometries.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_col_geometries</span></div>
 
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.get_row_geometries">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_row_geometries">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_row_geometries">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_row_geometries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get row geometries.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_row_geometries</span></div>
 
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.get_annot_geometries">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_annot_geometries">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_annot_geometries">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_annot_geometries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get annotation geometries.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_annot_geometries</span></div>
 
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.set_col_geometries">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_col_geometries">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_col_geometries">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_col_geometries</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">geometries</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">],</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ProxySpatialFeatureExperiment&quot;</span><span class="p">:</span>
@@ -804,7 +804,7 @@
 
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.set_row_geometries">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_row_geometries">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_row_geometries">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_row_geometries</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">geometries</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">],</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ProxySpatialFeatureExperiment&quot;</span><span class="p">:</span>
@@ -829,7 +829,7 @@
 
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.set_annot_geometries">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_annot_geometries">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_annot_geometries">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_annot_geometries</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">geometries</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">],</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ProxySpatialFeatureExperiment&quot;</span><span class="p">:</span>
@@ -902,14 +902,14 @@
     <span class="c1">##############################</span>
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.get_spatial_graphs">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_spatial_graphs">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_spatial_graphs">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_spatial_graphs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BiocFrame</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get spatial neighborhood graphs.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spatial_graphs</span></div>
 
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.set_spatial_graphs">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_spatial_graphs">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_spatial_graphs">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_spatial_graphs</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">graphs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BiocFrame</span><span class="p">],</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ProxySpatialFeatureExperiment&quot;</span><span class="p">:</span>
@@ -953,7 +953,7 @@
     <span class="c1">################################</span>
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.get_slice">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_slice">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_slice">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_slice</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">rows</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">List</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1043,7 +1043,7 @@
     <span class="c1">################################</span>
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.set_column_data">
-<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_column_data">[docs]</a>
+<a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_column_data">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_column_data</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">cols</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BiocFrame</span><span class="p">],</span>
@@ -1121,7 +1121,7 @@
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+</div><script src="../../_static/documentation_options.js?v=e3a6060d"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>

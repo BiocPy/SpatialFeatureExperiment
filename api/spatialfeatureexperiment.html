@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="spatialfeatureexperiment" href="modules.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>spatialfeatureexperiment package - SpatialFeatureExperiment 0.0.1 documentation</title>
+        <title>spatialfeatureexperiment package - SpatialFeatureExperiment 0.0.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -167,7 +167,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">SpatialFeatureExperiment 0.0.1 documentation</div></a>
+      <a href="../index.html"><div class="brand">SpatialFeatureExperiment 0.0.2 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -191,7 +191,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">SpatialFeatureExperiment 0.0.1 documentation</span>
+  <span class="sidebar-brand-text">SpatialFeatureExperiment 0.0.2 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -254,18 +254,397 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
 </section>
-<section id="module-spatialfeatureexperiment.SpatialFeatureExperiment">
-<span id="spatialfeatureexperiment-spatialfeatureexperiment-module"></span><h2>spatialfeatureexperiment.SpatialFeatureExperiment module<a class="headerlink" href="#module-spatialfeatureexperiment.SpatialFeatureExperiment" title="Link to this heading">¶</a></h2>
+<section id="module-spatialfeatureexperiment.aligned_spatialimage">
+<span id="spatialfeatureexperiment-aligned-spatialimage-module"></span><h2>spatialfeatureexperiment.aligned_spatialimage module<a class="headerlink" href="#module-spatialfeatureexperiment.aligned_spatialimage" title="Link to this heading">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spatialfeatureexperiment.SpatialFeatureExperiment.</span></span><span class="sig-name descname"><span class="pre">SpatialFeatureExperiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduced_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_experiment_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternative_experiments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternative_experiment_check_dim_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_pairs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_pairs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_geometries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_geometries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annot_geometries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_graphs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'full_res_image_pixel'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spatialfeatureexperiment.aligned_spatialimage.</span></span><span class="sig-name descname"><span class="pre">AlignedSpatialImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#AlignedSpatialImage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">VirtualSpatialImage</span></code></p>
+<p>Base class for spatial images with extent.</p>
+<p>All images in <cite>SpatialFeatureExperiment</cite> have an extent in spatial coordinates.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({'img_raster',</span> <span class="pre">'img_source'})</span></em><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.__abstractmethods__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#AlignedSpatialImage.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.extent">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">extent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.extent" title="Link to this definition">¶</a></dt>
+<dd><p>Alias for <a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.get_extent" title="spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.get_extent"><code class="xref py py-attr docutils literal notranslate"><span class="pre">get_extent</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.get_extent">
+<span class="sig-name descname"><span class="pre">get_extent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#AlignedSpatialImage.get_extent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.get_extent" title="Link to this definition">¶</a></dt>
+<dd><p>Get the extent of the image</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.set_extent">
+<span class="sig-name descname"><span class="pre">set_extent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#AlignedSpatialImage.set_extent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.set_extent" title="Link to this definition">¶</a></dt>
+<dd><p>Set the extent of the image</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spatialfeatureexperiment.aligned_spatialimage.</span></span><span class="sig-name descname"><span class="pre">BioFormatsImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.0,</span> <span class="pre">0.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tranformation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#BioFormatsImage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage" title="spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlignedSpatialImage</span></code></a></p>
+<p>On-disk representation of BioFormats images in <cite>SpatialFeatureExperiment</cite> objects.</p>
+<p>This class is designed for OME-TIFF files and other formats supported by aicsimageio.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({})</span></em><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.__abstractmethods__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.__annotations__">
+<span class="sig-name descname"><span class="pre">__annotations__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.__annotations__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.0,</span> <span class="pre">0.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tranformation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#BioFormatsImage.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initialize the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Union" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/pathlib.html#pathlib.Path" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a>]</span>) – Path to the image file.</p></li>
+<li><p><strong>extent</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</span>) – The spatial extent of the image, by default None.
+Must have keys: ‘xmin’, ‘xmax’, ‘ymin’, ‘ymax’.</p></li>
+<li><p><strong>is_full</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span>) – Whether if this the full extent of the image.
+Defaults to True.</p></li>
+<li><p><strong>origin</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.List" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</span>) – Origin of the image in spatial coordinates.
+Defaults to (0, 0).</p></li>
+<li><p><strong>tranformation</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span>) – Affine transformation.
+Defaults to None.</p></li>
+<li><p><strong>metadata</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span>) – Additional image metadata. Defaults to None.</p></li>
+<li><p><strong>validate</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span>) – Internal use only.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#BioFormatsImage.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.__repr__" title="Link to this definition">¶</a></dt>
+<dd><p>String representation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.get_dimensions">
+<span class="sig-name descname"><span class="pre">get_dimensions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#BioFormatsImage.get_dimensions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.get_dimensions" title="Link to this definition">¶</a></dt>
+<dd><p>Get the dimensions of the image (X, Y, C, Z, T)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.get_extent">
+<span class="sig-name descname"><span class="pre">get_extent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#BioFormatsImage.get_extent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.get_extent" title="Link to this definition">¶</a></dt>
+<dd><p>Get the extent of the image, applying any transformations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.img_raster">
+<span class="sig-name descname"><span class="pre">img_raster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#BioFormatsImage.img_raster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.img_raster" title="Link to this definition">¶</a></dt>
+<dd><p>Load the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Image data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.img_source">
+<span class="sig-name descname"><span class="pre">img_source</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#BioFormatsImage.img_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.img_source" title="Link to this definition">¶</a></dt>
+<dd><p>Get the source file path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.set_extent">
+<span class="sig-name descname"><span class="pre">set_extent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#BioFormatsImage.set_extent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.set_extent" title="Link to this definition">¶</a></dt>
+<dd><p>Set the extent of the image.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.shape">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.shape" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.to_ext_image">
+<span class="sig-name descname"><span class="pre">to_ext_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#BioFormatsImage.to_ext_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.to_ext_image" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#BioFormatsImage.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.validate" title="Link to this definition">¶</a></dt>
+<dd><p>Validate the object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.ExtImage">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spatialfeatureexperiment.aligned_spatialimage.</span></span><span class="sig-name descname"><span class="pre">ExtImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#ExtImage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage" title="spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlignedSpatialImage</span></code></a></p>
+<p>Use the PIL/numpy arrays in SpatialFeatureExperiment objects.</p>
+<p>This class is a wrapper around <cite>PIL.Image</cite> or numpy arrays with spatial extent information.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.ExtImage.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({})</span></em><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.__abstractmethods__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.ExtImage.__annotations__">
+<span class="sig-name descname"><span class="pre">__annotations__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.__annotations__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.ExtImage.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#ExtImage.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initialize an ExtImage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Union" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Image</span></code>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>]</span>) – The image data.</p></li>
+<li><p><strong>extent</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Optional" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]]</span>) – The spatial extent of the image, by default None.
+Must have keys: ‘xmin’, ‘xmax’, ‘ymin’, ‘ymax’.</p></li>
+<li><p><strong>metadata</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Optional" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>]</span>) – Additional image metadata. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.ExtImage.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#ExtImage.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.__repr__" title="Link to this definition">¶</a></dt>
+<dd><p>String representation.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.ExtImage.array">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">array</span></span><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.array" title="Link to this definition">¶</a></dt>
+<dd><p>Get the image as a numpy array.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.ExtImage.get_dimensions">
+<span class="sig-name descname"><span class="pre">get_dimensions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#ExtImage.get_dimensions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.get_dimensions" title="Link to this definition">¶</a></dt>
+<dd><p>Get the shape of the image (height, width, channels).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.ExtImage.get_extent">
+<span class="sig-name descname"><span class="pre">get_extent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#ExtImage.get_extent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.get_extent" title="Link to this definition">¶</a></dt>
+<dd><p>Get the extent of the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.ExtImage.img_raster">
+<span class="sig-name descname"><span class="pre">img_raster</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#ExtImage.img_raster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.img_raster" title="Link to this definition">¶</a></dt>
+<dd><p>Load the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Image</span></code></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Image data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.ExtImage.img_source">
+<span class="sig-name descname"><span class="pre">img_source</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#ExtImage.img_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.img_source" title="Link to this definition">¶</a></dt>
+<dd><p>Get the source file path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.ExtImage.set_extent">
+<span class="sig-name descname"><span class="pre">set_extent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#ExtImage.set_extent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.set_extent" title="Link to this definition">¶</a></dt>
+<dd><p>Set the extent of the image.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.ExtImage.shape">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.shape" title="Link to this definition">¶</a></dt>
+<dd><p>Get the shape of the image (height, width, channels).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.ExtImage.to_pil">
+<span class="sig-name descname"><span class="pre">to_pil</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#ExtImage.to_pil"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.to_pil" title="Link to this definition">¶</a></dt>
+<dd><p>Convert to PIL Image.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spatialfeatureexperiment.aligned_spatialimage.</span></span><span class="sig-name descname"><span class="pre">SpatRasterImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#SpatRasterImage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage" title="spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlignedSpatialImage</span></code></a></p>
+<p><cite>SpatRaster</cite> representation of images in SpatialFeatureExperiment objects.</p>
+<p>This class is a wrapper around rasterio for handling GeoTIFF images.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({})</span></em><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__abstractmethods__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__annotations__">
+<span class="sig-name descname"><span class="pre">__annotations__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__annotations__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__del__">
+<span class="sig-name descname"><span class="pre">__del__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#SpatRasterImage.__del__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__del__" title="Link to this definition">¶</a></dt>
+<dd><p>Clean up resources.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#SpatRasterImage.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initialize a <cite>SpatRasterImage</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Union" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DatasetReader</span></code>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>]</span>) – The image data, either as a rasterio dataset or a numpy array.</p></li>
+<li><p><strong>extent</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Optional" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]]</span>) – The spatial extent of the image, by default None.
+Must have keys: ‘xmin’, ‘xmax’, ‘ymin’, ‘ymax’.</p></li>
+<li><p><strong>metadata</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Optional" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>]</span>) – Additional image metadata. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#SpatRasterImage.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__repr__" title="Link to this definition">¶</a></dt>
+<dd><p>String representation.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.array">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">array</span></span><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.array" title="Link to this definition">¶</a></dt>
+<dd><p>Get the image as a numpy array (loads into memory)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.get_dimensions">
+<span class="sig-name descname"><span class="pre">get_dimensions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#SpatRasterImage.get_dimensions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.get_dimensions" title="Link to this definition">¶</a></dt>
+<dd><p>Get the shape of the image (height, width, channels).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.get_extent">
+<span class="sig-name descname"><span class="pre">get_extent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#SpatRasterImage.get_extent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.get_extent" title="Link to this definition">¶</a></dt>
+<dd><p>Get the extent of the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.img_raster">
+<span class="sig-name descname"><span class="pre">img_raster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resampling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#SpatRasterImage.img_raster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.img_raster" title="Link to this definition">¶</a></dt>
+<dd><p>Load the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Optional" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>]</span>) – Window to read, by default None (read entire image).</p></li>
+<li><p><strong>out_shape</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Optional" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>]</span>) – Output shape, by default None (no resampling).</p></li>
+<li><p><strong>resampling</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Resampling method, by default 0 (nearest).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Image data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.img_source">
+<span class="sig-name descname"><span class="pre">img_source</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#SpatRasterImage.img_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.img_source" title="Link to this definition">¶</a></dt>
+<dd><p>Get the source file path if available.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.in_memory">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">in_memory</span></span><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.in_memory" title="Link to this definition">¶</a></dt>
+<dd><p>Check if the image is in memory.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.numpy_array_to_rasterio">
+<span class="sig-name descname"><span class="pre">numpy_array_to_rasterio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#SpatRasterImage.numpy_array_to_rasterio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.numpy_array_to_rasterio" title="Link to this definition">¶</a></dt>
+<dd><p>Convert a numpy array to a rasterio dataset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.set_extent">
+<span class="sig-name descname"><span class="pre">set_extent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/aligned_spatialimage.html#SpatRasterImage.set_extent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.set_extent" title="Link to this definition">¶</a></dt>
+<dd><p>Set the extent of the image.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.shape">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.shape" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-spatialfeatureexperiment.sfe">
+<span id="spatialfeatureexperiment-sfe-module"></span><h2>spatialfeatureexperiment.sfe module<a class="headerlink" href="#module-spatialfeatureexperiment.sfe" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spatialfeatureexperiment.sfe.</span></span><span class="sig-name descname"><span class="pre">SpatialFeatureExperiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduced_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_experiment_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternative_experiments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternative_experiment_check_dim_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_pairs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_pairs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_geometries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_geometries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annot_geometries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_graphs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'full_res_image_pixel'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SpatialExperiment</span></code></p>
 <p>Container class for storing data from spatial-omics experiments with feature geometries.</p>
 <p>This class extends SpatialExperiment to provide slots for geometries of spots/cells,
 tissue boundaries, pathologist annotations and other spatial features.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__copy__">
-<span class="sig-name descname"><span class="pre">__copy__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.__copy__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__copy__" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__copy__">
+<span class="sig-name descname"><span class="pre">__copy__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.__copy__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__copy__" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A shallow copy of the current <code class="docutils literal notranslate"><span class="pre">SpatialExperiment</span></code>.</p>
@@ -274,8 +653,8 @@ tissue boundaries, pathologist annotations and other spatial features.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__deepcopy__">
-<span class="sig-name descname"><span class="pre">__deepcopy__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">memo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_nil</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.__deepcopy__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__deepcopy__" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__deepcopy__">
+<span class="sig-name descname"><span class="pre">__deepcopy__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">memo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_nil</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.__deepcopy__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__deepcopy__" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A deep copy of the current <code class="docutils literal notranslate"><span class="pre">SpatialExperiment</span></code>.</p>
@@ -284,8 +663,8 @@ tissue boundaries, pathologist annotations and other spatial features.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduced_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_experiment_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternative_experiments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternative_experiment_check_dim_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_pairs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_pairs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_geometries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_geometries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annot_geometries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_graphs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'full_res_image_pixel'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__init__" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduced_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_experiment_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternative_experiments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternative_experiment_check_dim_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_pairs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_pairs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_geometries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_geometries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annot_geometries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_graphs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'full_res_image_pixel'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>Initialize a spatial feature class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -385,8 +764,8 @@ column names might include:</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__repr__">
-<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__repr__" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__repr__" title="Link to this definition">¶</a></dt>
 <dd><p>Get string representation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -396,26 +775,26 @@ column names might include:</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.annot_geometries">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">annot_geometries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">GeoDataFrame</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.annot_geometries" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.annot_geometries">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">annot_geometries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">GeoDataFrame</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.annot_geometries" title="Link to this definition">¶</a></dt>
 <dd><p>Get annotation geometries.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.col_geometries">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">col_geometries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">GeoDataFrame</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.col_geometries" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.col_geometries">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">col_geometries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">GeoDataFrame</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.col_geometries" title="Link to this definition">¶</a></dt>
 <dd><p>Get column geometries.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.copy" title="Link to this definition">¶</a></dt>
-<dd><p>Alias for <a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__copy__" title="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__copy__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__copy__()</span></code></a>.</p>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.copy" title="Link to this definition">¶</a></dt>
+<dd><p>Alias for <a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__copy__" title="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__copy__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__copy__()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_annot_geometries">
-<span class="sig-name descname"><span class="pre">get_annot_geometries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.get_annot_geometries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_annot_geometries" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_annot_geometries">
+<span class="sig-name descname"><span class="pre">get_annot_geometries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.get_annot_geometries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_annot_geometries" title="Link to this definition">¶</a></dt>
 <dd><p>Get annotation geometries.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -425,8 +804,8 @@ column names might include:</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_col_geometries">
-<span class="sig-name descname"><span class="pre">get_col_geometries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.get_col_geometries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_col_geometries" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_col_geometries">
+<span class="sig-name descname"><span class="pre">get_col_geometries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.get_col_geometries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_col_geometries" title="Link to this definition">¶</a></dt>
 <dd><p>Get column geometries.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -436,8 +815,8 @@ column names might include:</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_row_geometries">
-<span class="sig-name descname"><span class="pre">get_row_geometries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.get_row_geometries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_row_geometries" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_row_geometries">
+<span class="sig-name descname"><span class="pre">get_row_geometries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.get_row_geometries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_row_geometries" title="Link to this definition">¶</a></dt>
 <dd><p>Get row geometries.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -447,8 +826,8 @@ column names might include:</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_slice">
-<span class="sig-name descname"><span class="pre">get_slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.get_slice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_slice" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_slice">
+<span class="sig-name descname"><span class="pre">get_slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.get_slice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_slice" title="Link to this definition">¶</a></dt>
 <dd><p>Get a slice of the experiment.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -467,8 +846,8 @@ column names might include:</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_spatial_graphs">
-<span class="sig-name descname"><span class="pre">get_spatial_graphs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.get_spatial_graphs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_spatial_graphs" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_spatial_graphs">
+<span class="sig-name descname"><span class="pre">get_spatial_graphs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.get_spatial_graphs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_spatial_graphs" title="Link to this definition">¶</a></dt>
 <dd><p>Get spatial neighborhood graphs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -478,8 +857,8 @@ column names might include:</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_unit">
-<span class="sig-name descname"><span class="pre">get_unit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.get_unit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_unit" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_unit">
+<span class="sig-name descname"><span class="pre">get_unit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.get_unit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_unit" title="Link to this definition">¶</a></dt>
 <dd><p>Get the coordinate unit.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -489,14 +868,14 @@ column names might include:</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.row_geometries">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">row_geometries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">GeoDataFrame</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.row_geometries" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.row_geometries">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">row_geometries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">GeoDataFrame</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.row_geometries" title="Link to this definition">¶</a></dt>
 <dd><p>Get row geometries.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_annot_geometries">
-<span class="sig-name descname"><span class="pre">set_annot_geometries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.set_annot_geometries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_annot_geometries" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_annot_geometries">
+<span class="sig-name descname"><span class="pre">set_annot_geometries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.set_annot_geometries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_annot_geometries" title="Link to this definition">¶</a></dt>
 <dd><p>Set annotation geometries.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -515,8 +894,8 @@ column names might include:</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_col_geometries">
-<span class="sig-name descname"><span class="pre">set_col_geometries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.set_col_geometries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_col_geometries" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_col_geometries">
+<span class="sig-name descname"><span class="pre">set_col_geometries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.set_col_geometries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_col_geometries" title="Link to this definition">¶</a></dt>
 <dd><p>Set column geometries.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -535,8 +914,8 @@ column names might include:</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_column_data">
-<span class="sig-name descname"><span class="pre">set_column_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace_column_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.set_column_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_column_data" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_column_data">
+<span class="sig-name descname"><span class="pre">set_column_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace_column_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.set_column_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_column_data" title="Link to this definition">¶</a></dt>
 <dd><p>Override: Set sample data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -562,8 +941,8 @@ new object. Defaults to False.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_row_geometries">
-<span class="sig-name descname"><span class="pre">set_row_geometries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.set_row_geometries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_row_geometries" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_row_geometries">
+<span class="sig-name descname"><span class="pre">set_row_geometries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.set_row_geometries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_row_geometries" title="Link to this definition">¶</a></dt>
 <dd><p>Set row geometries.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -582,8 +961,8 @@ new object. Defaults to False.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_spatial_graphs">
-<span class="sig-name descname"><span class="pre">set_spatial_graphs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graphs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.set_spatial_graphs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_spatial_graphs" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_spatial_graphs">
+<span class="sig-name descname"><span class="pre">set_spatial_graphs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graphs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.set_spatial_graphs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_spatial_graphs" title="Link to this definition">¶</a></dt>
 <dd><p>Set spatial neighborhood graphs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -602,8 +981,8 @@ new object. Defaults to False.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_unit">
-<span class="sig-name descname"><span class="pre">set_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/SpatialFeatureExperiment.html#SpatialFeatureExperiment.set_unit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_unit" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_unit">
+<span class="sig-name descname"><span class="pre">set_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spatialfeatureexperiment/sfe.html#SpatialFeatureExperiment.set_unit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_unit" title="Link to this definition">¶</a></dt>
 <dd><p>Set the coordinate unit.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -622,14 +1001,14 @@ new object. Defaults to False.</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.spatial_graphs">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spatial_graphs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">BiocFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></em><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.spatial_graphs" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.spatial_graphs">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spatial_graphs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">BiocFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></em><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.spatial_graphs" title="Link to this definition">¶</a></dt>
 <dd><p>Get spatial graphs.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.unit">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.unit" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spatialfeatureexperiment.sfe.SpatialFeatureExperiment.unit">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.unit" title="Link to this definition">¶</a></dt>
 <dd><p>Get coordinate unit.</p>
 </dd></dl>
 
@@ -690,30 +1069,88 @@ new object. Defaults to False.</p></li>
             <ul>
 <li><a class="reference internal" href="#">spatialfeatureexperiment package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-spatialfeatureexperiment.SpatialFeatureExperiment">spatialfeatureexperiment.SpatialFeatureExperiment module</a><ul>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment</span></code></a><ul>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__copy__"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.__copy__()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__deepcopy__"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.__deepcopy__()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__init__"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.__repr__"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.__repr__()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.annot_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.annot_geometries</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.col_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.col_geometries</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.copy"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.copy()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_annot_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.get_annot_geometries()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_col_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.get_col_geometries()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_row_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.get_row_geometries()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_slice"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.get_slice()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_spatial_graphs"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.get_spatial_graphs()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.get_unit"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.get_unit()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.row_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.row_geometries</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_annot_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.set_annot_geometries()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_col_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.set_col_geometries()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_column_data"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.set_column_data()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_row_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.set_row_geometries()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_spatial_graphs"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.set_spatial_graphs()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.set_unit"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.set_unit()</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.spatial_graphs"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.spatial_graphs</span></code></a></li>
-<li><a class="reference internal" href="#spatialfeatureexperiment.SpatialFeatureExperiment.SpatialFeatureExperiment.unit"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.unit</span></code></a></li>
+<li><a class="reference internal" href="#module-spatialfeatureexperiment.aligned_spatialimage">spatialfeatureexperiment.aligned_spatialimage module</a><ul>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage"><code class="docutils literal notranslate"><span class="pre">AlignedSpatialImage</span></code></a><ul>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.__abstractmethods__"><code class="docutils literal notranslate"><span class="pre">AlignedSpatialImage.__abstractmethods__</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.__init__"><code class="docutils literal notranslate"><span class="pre">AlignedSpatialImage.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.extent"><code class="docutils literal notranslate"><span class="pre">AlignedSpatialImage.extent</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.get_extent"><code class="docutils literal notranslate"><span class="pre">AlignedSpatialImage.get_extent()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.AlignedSpatialImage.set_extent"><code class="docutils literal notranslate"><span class="pre">AlignedSpatialImage.set_extent()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage"><code class="docutils literal notranslate"><span class="pre">BioFormatsImage</span></code></a><ul>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.__abstractmethods__"><code class="docutils literal notranslate"><span class="pre">BioFormatsImage.__abstractmethods__</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.__annotations__"><code class="docutils literal notranslate"><span class="pre">BioFormatsImage.__annotations__</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.__init__"><code class="docutils literal notranslate"><span class="pre">BioFormatsImage.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.__repr__"><code class="docutils literal notranslate"><span class="pre">BioFormatsImage.__repr__()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.get_dimensions"><code class="docutils literal notranslate"><span class="pre">BioFormatsImage.get_dimensions()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.get_extent"><code class="docutils literal notranslate"><span class="pre">BioFormatsImage.get_extent()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.img_raster"><code class="docutils literal notranslate"><span class="pre">BioFormatsImage.img_raster()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.img_source"><code class="docutils literal notranslate"><span class="pre">BioFormatsImage.img_source()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.set_extent"><code class="docutils literal notranslate"><span class="pre">BioFormatsImage.set_extent()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.shape"><code class="docutils literal notranslate"><span class="pre">BioFormatsImage.shape</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.to_ext_image"><code class="docutils literal notranslate"><span class="pre">BioFormatsImage.to_ext_image()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.BioFormatsImage.validate"><code class="docutils literal notranslate"><span class="pre">BioFormatsImage.validate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage"><code class="docutils literal notranslate"><span class="pre">ExtImage</span></code></a><ul>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.__abstractmethods__"><code class="docutils literal notranslate"><span class="pre">ExtImage.__abstractmethods__</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.__annotations__"><code class="docutils literal notranslate"><span class="pre">ExtImage.__annotations__</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.__init__"><code class="docutils literal notranslate"><span class="pre">ExtImage.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.__repr__"><code class="docutils literal notranslate"><span class="pre">ExtImage.__repr__()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.array"><code class="docutils literal notranslate"><span class="pre">ExtImage.array</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.get_dimensions"><code class="docutils literal notranslate"><span class="pre">ExtImage.get_dimensions()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.get_extent"><code class="docutils literal notranslate"><span class="pre">ExtImage.get_extent()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.img_raster"><code class="docutils literal notranslate"><span class="pre">ExtImage.img_raster()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.img_source"><code class="docutils literal notranslate"><span class="pre">ExtImage.img_source()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.set_extent"><code class="docutils literal notranslate"><span class="pre">ExtImage.set_extent()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.shape"><code class="docutils literal notranslate"><span class="pre">ExtImage.shape</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.ExtImage.to_pil"><code class="docutils literal notranslate"><span class="pre">ExtImage.to_pil()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage</span></code></a><ul>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__abstractmethods__"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage.__abstractmethods__</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__annotations__"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage.__annotations__</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__del__"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage.__del__()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__init__"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.__repr__"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage.__repr__()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.array"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage.array</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.get_dimensions"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage.get_dimensions()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.get_extent"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage.get_extent()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.img_raster"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage.img_raster()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.img_source"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage.img_source()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.in_memory"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage.in_memory</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.numpy_array_to_rasterio"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage.numpy_array_to_rasterio()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.set_extent"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage.set_extent()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.aligned_spatialimage.SpatRasterImage.shape"><code class="docutils literal notranslate"><span class="pre">SpatRasterImage.shape</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-spatialfeatureexperiment.sfe">spatialfeatureexperiment.sfe module</a><ul>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment</span></code></a><ul>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__copy__"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.__copy__()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__deepcopy__"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.__deepcopy__()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__init__"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.__repr__"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.__repr__()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.annot_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.annot_geometries</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.col_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.col_geometries</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.copy"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.copy()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_annot_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.get_annot_geometries()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_col_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.get_col_geometries()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_row_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.get_row_geometries()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_slice"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.get_slice()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_spatial_graphs"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.get_spatial_graphs()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.get_unit"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.get_unit()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.row_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.row_geometries</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_annot_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.set_annot_geometries()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_col_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.set_col_geometries()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_column_data"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.set_column_data()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_row_geometries"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.set_row_geometries()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_spatial_graphs"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.set_spatial_graphs()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.set_unit"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.set_unit()</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.spatial_graphs"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.spatial_graphs</span></code></a></li>
+<li><a class="reference internal" href="#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.unit"><code class="docutils literal notranslate"><span class="pre">SpatialFeatureExperiment.unit</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -730,7 +1167,7 @@ new object. Defaults to False.</p></li>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=d45e8c67"></script>
+</div><script src="../_static/documentation_options.js?v=e3a6060d"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=5fa4622c"></script>

@@ -4,10 +4,18 @@ spatialfeatureexperiment package
 Submodules
 ----------
 
-spatialfeatureexperiment.SpatialFeatureExperiment module
---------------------------------------------------------
+spatialfeatureexperiment.aligned\_spatialimage module
+-----------------------------------------------------
 
-.. automodule:: spatialfeatureexperiment.SpatialFeatureExperiment
+.. automodule:: spatialfeatureexperiment.aligned_spatialimage
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+spatialfeatureexperiment.sfe module
+-----------------------------------
+
+.. automodule:: spatialfeatureexperiment.sfe
    :members:
    :show-inheritance:
    :undoc-members:
