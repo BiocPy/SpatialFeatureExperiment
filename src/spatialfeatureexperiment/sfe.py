@@ -451,7 +451,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         """Get the coordinate unit."""
         return self._unit
 
-    def set_unit(self, unit: str, in_place: bool = False) -> "ProxySpatialFeatureExperiment":
+    def set_unit(self, unit: str, in_place: bool = False) -> "SpatialFeatureExperiment":
         """Set the coordinate unit.
 
         Args:
@@ -459,10 +459,10 @@ class SpatialFeatureExperiment(SpatialExperiment):
                 New unit ('full_res_image_pixel' or 'micron').
 
             in_place:
-                Whether to modify the ``ProxySpatialFeatureExperiment`` in place. Defaults to False.
+                Whether to modify the ``SpatialFeatureExperiment`` in place. Defaults to False.
 
         Returns:
-            A modified ``ProxySpatialFeatureExperiment`` object, either as a copy of the original or as a reference to the (in-place-modified) original.
+            A modified ``SpatialFeatureExperiment`` object, either as a copy of the original or as a reference to the (in-place-modified) original.
         """
         if unit not in ("full_res_image_pixel", "micron"):
             raise ValueError("unit must be 'full_res_image_pixel' or 'micron'")
@@ -503,7 +503,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
 
     def set_col_geometries(
         self, geometries: Dict[str, gpd.GeoDataFrame], in_place: bool = False
-    ) -> "ProxySpatialFeatureExperiment":
+    ) -> "SpatialFeatureExperiment":
         """Set column geometries.
 
         Args:
@@ -511,10 +511,10 @@ class SpatialFeatureExperiment(SpatialExperiment):
                 New column geometries.
 
             in_place:
-                Whether to modify the ``ProxySpatialFeatureExperiment`` in place. Defaults to False.
+                Whether to modify the ``SpatialFeatureExperiment`` in place. Defaults to False.
 
         Returns:
-            A modified ``ProxySpatialFeatureExperiment`` object, either as a copy of the original or as a reference to the (in-place-modified) original.
+            A modified ``SpatialFeatureExperiment`` object, either as a copy of the original or as a reference to the (in-place-modified) original.
         """
         _geoms = _sanitize_geomertries(geometries=geometries)
         _validate_geometries(_geoms, "col_geometries")
@@ -525,7 +525,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
 
     def set_row_geometries(
         self, geometries: Dict[str, gpd.GeoDataFrame], in_place: bool = False
-    ) -> "ProxySpatialFeatureExperiment":
+    ) -> "SpatialFeatureExperiment":
         """Set row geometries.
 
         Args:
@@ -533,10 +533,10 @@ class SpatialFeatureExperiment(SpatialExperiment):
                 New row geometries.
 
             in_place:
-                Whether to modify the ``ProxySpatialFeatureExperiment`` in place. Defaults to False.
+                Whether to modify the ``SpatialFeatureExperiment`` in place. Defaults to False.
 
         Returns:
-            A modified ``ProxySpatialFeatureExperiment`` object, either as a copy of the original or as a reference to the (in-place-modified) original.
+            A modified ``SpatialFeatureExperiment`` object, either as a copy of the original or as a reference to the (in-place-modified) original.
         """
         _geoms = _sanitize_geomertries(geometries=geometries)
         _validate_geometries(_geoms, "row_geometries")
@@ -547,7 +547,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
 
     def set_annot_geometries(
         self, geometries: Dict[str, gpd.GeoDataFrame], in_place: bool = False
-    ) -> "ProxySpatialFeatureExperiment":
+    ) -> "SpatialFeatureExperiment":
         """Set annotation geometries.
 
         Args:
@@ -555,10 +555,10 @@ class SpatialFeatureExperiment(SpatialExperiment):
                 New annotation geometries.
 
             in_place:
-                Whether to modify the ``ProxySpatialFeatureExperiment`` in place. Defaults to False.
+                Whether to modify the ``SpatialFeatureExperiment`` in place. Defaults to False.
 
         Returns:
-            A modified ``ProxySpatialFeatureExperiment`` object, either as a copy of the original or as a reference to the (in-place-modified) original.
+            A modified ``SpatialFeatureExperiment`` object, either as a copy of the original or as a reference to the (in-place-modified) original.
         """
         _geoms = _sanitize_geomertries(geometries=geometries)
 
@@ -619,9 +619,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         """Get spatial neighborhood graphs."""
         return self._spatial_graphs
 
-    def set_spatial_graphs(
-        self, graphs: Optional[BiocFrame], in_place: bool = False
-    ) -> "ProxySpatialFeatureExperiment":
+    def set_spatial_graphs(self, graphs: Optional[BiocFrame], in_place: bool = False) -> "SpatialFeatureExperiment":
         """Set spatial neighborhood graphs.
 
         Args:
@@ -629,10 +627,10 @@ class SpatialFeatureExperiment(SpatialExperiment):
                 New spatial graphs as `BiocFrame`.
 
             in_place:
-                Whether to modify the ``ProxySpatialFeatureExperiment`` in place. Defaults to False.
+                Whether to modify the ``SpatialFeatureExperiment`` in place. Defaults to False.
 
         Returns:
-            A modified ``ProxySpatialFeatureExperiment`` object, either as a copy of the original or as a reference to the (in-place-modified) original.
+            A modified ``SpatialFeatureExperiment`` object, either as a copy of the original or as a reference to the (in-place-modified) original.
         """
         _graphs = _sanitize_spatial_graphs(graphs, list(set(self.get_column_data().get_column("sample_id"))))
         _validate_graph_structure(_graphs)
@@ -664,7 +662,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         self,
         rows: Optional[Union[str, int, bool, List]] = None,
         columns: Optional[Union[str, int, bool, List]] = None,
-    ) -> "ProxySpatialFeatureExperiment":
+    ) -> "SpatialFeatureExperiment":
         """Get a slice of the experiment.
 
         Args:
@@ -675,7 +673,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
                 Column indices/names to select.
 
         Returns:
-            Sliced ProxySpatialFeatureExperiment.
+            Sliced SpatialFeatureExperiment.
         """
         sfe = super().get_slice(rows=rows, columns=columns)
 
@@ -752,7 +750,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         cols: Optional[BiocFrame],
         replace_column_names: bool = False,
         in_place: bool = False,
-    ) -> "ProxySpatialFeatureExperiment":
+    ) -> "SpatialFeatureExperiment":
         """Override: Set sample data.
 
         Args:
@@ -769,10 +767,10 @@ class SpatialFeatureExperiment(SpatialExperiment):
                 new object. Defaults to False.
 
             in_place:
-                Whether to modify the ``ProxySpatialFeatureExperiment`` in place. Defaults to False.
+                Whether to modify the ``SpatialFeatureExperiment`` in place. Defaults to False.
 
         Returns:
-            A modified ``ProxySpatialFeatureExperiment`` object, either as a copy of the original or as a reference to the (in-place-modified) original.
+            A modified ``SpatialFeatureExperiment`` object, either as a copy of the original or as a reference to the (in-place-modified) original.
         """
         cols = _sanitize_frame(cols, num_rows=self.shape[1])
         if "sample_id" not in cols.columns:
