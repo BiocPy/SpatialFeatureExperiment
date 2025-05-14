@@ -12,6 +12,14 @@ spatialfeatureexperiment.aligned\_spatialimage module
    :show-inheritance:
    :undoc-members:
 
+spatialfeatureexperiment.coercions module
+-----------------------------------------
+
+.. automodule:: spatialfeatureexperiment.coercions
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 spatialfeatureexperiment.sfe module
 -----------------------------------
 
