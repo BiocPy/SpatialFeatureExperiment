@@ -43,7 +43,7 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
 
-      - Install system dependencies
+      - name: Install system dependencies
         run: |
           sudo apt-get install libxml2-dev libxslt-dev
 

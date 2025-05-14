@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: 3.11
 
-      - Install system dependencies
+      - name: Install system dependencies
         run: |
           sudo apt-get install libxml2-dev libxslt-dev
 
