@@ -5,13 +5,16 @@ import biocutils as ut
 import geopandas as gpd
 import numpy as np
 from biocframe import BiocFrame
-from spatialexperiment.SpatialExperiment import (
+from libpysal.graph import Graph
+from spatialexperiment.spatialexperiment import (
     SpatialExperiment,
     _validate_column_data,
     _validate_sample_ids,
 )
 from summarizedexperiment._frameutils import _sanitize_frame
 from summarizedexperiment.RangedSummarizedExperiment import GRangesOrGRangesList
+
+from .coercions import spe_to_sfe
 
 __author__ = "jkanche"
 __copyright__ = "jkanche"
@@ -32,10 +35,7 @@ def _sanitize_spatial_graphs(spatial_graph, sample_ids):
         obj = {}
         for x in sample_ids:
             obj[x] = [None] * 3
-        return BiocFrame(obj, number_of_rows=3, row_names=["row", "col", "annot"])
-
-    if hasattr(spatial_graph, "dtypes"):
-        return BiocFrame.from_pandas(spatial_graph)
+        return obj
 
     return spatial_graph
 
@@ -74,7 +74,7 @@ def _validate_annotgeometries(geometries, column_data):
 def _validate_graph_sample_id(spatial_graphs, column_data):
     """Validate graph sample IDs match column data."""
     col_sample_ids = set(column_data.get_column("sample_id"))
-    graph_sample_ids = set(spatial_graphs.get_column_names())
+    graph_sample_ids = set(spatial_graphs.keys())
 
     missing = graph_sample_ids - col_sample_ids
     if missing:
@@ -86,13 +86,11 @@ def _validate_graph_structure(spatial_graphs):
     if spatial_graphs is None:
         return
 
-    if not isinstance(spatial_graphs, BiocFrame):
+    if not isinstance(spatial_graphs, dict):
         raise TypeError(
-            "'spatial_graphs' must be a `BiocFrame` whose columns are 'sample_ids' "
-            "and whose rows are margins (rows, columns, annotation).\n"
+            "'spatial_graphs' must be a `dict` whose keys are 'sample_ids' "
+            "and whose values are margins (rows, columns, annotation).\n"
         )
-    elif not set(spatial_graphs.get_row_names()) == {"row", "col", "annot"}:
-        raise ValueError("Row names of 'spatial_graphs' must be 'row', 'col', and 'annot'.\n")
 
 
 class SpatialFeatureExperiment(SpatialExperiment):
@@ -123,7 +121,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         col_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
         row_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
         annot_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
-        spatial_graphs: Optional[BiocFrame] = None,
+        spatial_graphs: Optional[Dict[str, Union[Graph, Any]]] = None,
         unit: str = "full_res_image_pixel",
         validate: bool = True,
         **kwargs,
@@ -252,7 +250,8 @@ class SpatialFeatureExperiment(SpatialExperiment):
                 (e.g. tissue boundaries).
 
             spatial_graphs:
-                BiocFrame containing spatial neighborhood graphs.
+                A Dictionary containing spatial neighborhood graphs represented as
+                :py:class:`~libpysal.graph.Graph`.
 
             unit:
                 Unit for spatial coordinates ('full_res_image_pixel' or 'micron').
@@ -409,7 +408,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         output += ", row_geometries=" + ut.print_truncated_dict(self._row_geometries)
         output += ", annot_geometries=" + ut.print_truncated_dict(self._annot_geometries)
 
-        output += ", spatial_graphs=" + self._spatial_graphs.__repr__()
+        output += ", spatial_graphs=" + ut.print_truncated_dict(self._spatial_graphs)
         output += ")"
         return output
 
@@ -438,8 +437,8 @@ class SpatialFeatureExperiment(SpatialExperiment):
         # Add graphs info
         graphs = self._spatial_graphs
         if graphs is not None:
-            output += "\nGraphs:"
-            output += f"spatial_graphs columns({len(self._spatial_graphs.column_names)}): {ut.print_truncated_list(self._spatial_graphs.column_names)}\n"
+            output += "Graphs:"
+            output += f"spatial_graphs({str(len(graphs))}):{ut.print_truncated_list(list(graphs.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
 
         return output
 
@@ -764,7 +763,8 @@ class SpatialFeatureExperiment(SpatialExperiment):
 
             replace_column_names:
                 Whether to replace experiment's column_names with the names from the
-                new object. Defaults to False.
+                new object. 
+                Defaults to False.
 
             in_place:
                 Whether to modify the ``SpatialFeatureExperiment`` in place. Defaults to False.
@@ -788,3 +788,91 @@ class SpatialFeatureExperiment(SpatialExperiment):
             return output.set_column_names(cols.row_names, in_place=in_place)
 
         return output
+
+    #####################
+    ###>> coercions <<###
+    #####################
+
+    @classmethod
+    def from_spatial_experiment(
+        cls,
+        input: SpatialExperiment,
+        row_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
+        column_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
+        annotation_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
+        spatial_coordinates_names: list = None,
+        annotation_geometry_type: str = "POLYGON",
+        spatial_graphs: BiocFrame = None,
+        spot_diameter: float = None,
+        unit: str = None,
+    ) -> "SpatialFeatureExperiment":
+        """Coerce a :py:class:~`spatialexperiment.SpatialExperiment` to a `SpatialFeatureExperiment`.
+
+        Args:
+            input:
+                SpatialExperiment object.
+
+            row_geometries:
+                Row geometries.
+                Defaults to None.
+
+            column_geometries:
+                Column geometries.
+                Defaults to None.
+
+            annotation_geometries:
+                Annotation geometries.
+                Defaults to None.
+
+            spatial_coordinates_names:
+                Names of spatial coordinates.
+                Defaults to None.
+
+            annotation_geometry_type:
+                Type og annotation geometry.
+                Defaults to "POLYGON".
+
+            spatial_graphs:
+                Spatial graphs.
+                Defaults to None.
+
+            spot_diameter:
+                Diameter of spots.
+                Defaults to None.
+
+            unit:
+                Unit of measurement.
+                Defaults to None.
+        """
+        if spatial_coordinates_names is None:
+            spatial_coordinates_names = ["x", "y"]
+
+        _col_data = input.get_column_data()
+        if column_geometries is None:
+            if "col_geometries" in _col_data.get_column_names():
+                column_geometries = _col_data.get_column("col_geometries")
+
+        if row_geometries is None:
+            if "row_geometries" in _col_data.get_column_names():
+                row_geometries = _col_data.get_column("row_geometries")
+
+        if annotation_geometries is None:
+            if "annot_geometries" in _col_data:
+                annotation_geometries = _col_data.get_column("annot_geometries")
+
+        if spatial_graphs is None:
+            if "spatial_graphs" in input.get_metadata().keys():
+                spatial_graphs = input.get_metadata()["spatial_graphs"]
+
+        # Convert SpatialExperiment to SpatialFeatureExperiment
+        return spe_to_sfe(
+            spe=input,
+            column_geometries=column_geometries,
+            row_geometries=row_geometries,
+            annotation_geometries=annotation_geometries,
+            spatial_coordinates_names=spatial_coordinates_names,
+            annotation_geometry_type=annotation_geometry_type,
+            spatial_graphs=spatial_graphs,
+            spot_diameter=spot_diameter,
+            unit=unit,
+        )
