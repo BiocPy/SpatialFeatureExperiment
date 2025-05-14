@@ -70,7 +70,7 @@ def dataframe_to_geopandas(
             spatial_coordinates_names = [coords_df.columns[0], "_y_dummy"]
             coords_df["_y_dummy"] = 0.0
         else:
-            spatial_coordinates_names = [f"V{i+1}" for i in range(coords_df.shape[1])]
+            spatial_coordinates_names = [f"V{i + 1}" for i in range(coords_df.shape[1])]
 
     x_col, y_col = spatial_coordinates_names[:2]
 
@@ -214,7 +214,7 @@ def spatial_coords_to_col_geometries(
         raise TypeError("'coords' is an unsupported object. Must be a dataframe or ndarray.")
 
     if coords_df.columns.empty and coords_df.shape[1] > 0:
-        coords_df.columns = [f"spatial{i+1}" for i in range(coords_df.shape[1])]
+        coords_df.columns = [f"spatial{i + 1}" for i in range(coords_df.shape[1])]
 
     cg_sfc = dataframe_to_geopandas(
         coords,
