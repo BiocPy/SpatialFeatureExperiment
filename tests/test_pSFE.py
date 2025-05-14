@@ -1,5 +1,3 @@
-import pytest
-from PIL import Image
 from spatialfeatureexperiment import SpatialFeatureExperiment
 import numpy as np
 import geopandas as gpd
@@ -9,6 +7,7 @@ __author__ = "jkanche"
 __copyright__ = "jkanche"
 __license__ = "MIT"
 
+
 def test_init_basic():
     nrows = 200
     ncols = 500
@@ -17,10 +16,12 @@ def test_init_basic():
 
     assert isinstance(tspe, SpatialFeatureExperiment)
 
+
 def test_init_empty():
     tspe = SpatialFeatureExperiment()
 
     assert isinstance(tspe, SpatialFeatureExperiment)
+
 
 def test_init_with_col_geoms():
     nrows = 200
@@ -33,7 +34,7 @@ def test_init_with_col_geoms():
         ]
     )
 
-    colgeoms = {"polygons" : gpd.GeoDataFrame({"geometry": polys})}
+    colgeoms = {"polygons": gpd.GeoDataFrame({"geometry": polys})}
     tspe = SpatialFeatureExperiment(assays={"spots": counts}, col_geometries=colgeoms)
 
     assert isinstance(tspe, SpatialFeatureExperiment)
