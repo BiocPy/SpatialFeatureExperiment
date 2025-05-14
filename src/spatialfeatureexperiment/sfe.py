@@ -763,7 +763,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
 
             replace_column_names:
                 Whether to replace experiment's column_names with the names from the
-                new object. 
+                new object.
                 Defaults to False.
 
             in_place:
