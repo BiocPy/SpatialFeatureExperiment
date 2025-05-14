@@ -18,13 +18,13 @@ __author__ = "jkanche"
 __copyright__ = "jkanche"
 __license__ = "MIT"
 
-
+# TODO: need to test the polygon/multipoint
 def dataframe_to_geopandas(
     coords_df: pd.DataFrame,
     spatial_coordinates_names: list = None,
     spot_diameter: float = None,
     buffer_radius: float = 1.0,
-    vertices_col: Optional[str] = None,  # For POLYGON/MULTIPOINT from lists of coords
+    vertices_col: Optional[str] = None,  # specifically for POLYGON/MULTIPOINT from lists of coords
     geometry_type: Literal["POINT", "POLYGON", "MULTIPOINT"] = "POINT",
     end_cap_style: Literal["ROUND", "FLAT", "SQUARE"] = "ROUND",
 ) -> gpd.GeoDataFrame:
@@ -441,6 +441,7 @@ def spe_to_sfe(
                         )
                         continue
 
+                    # TODO: VERIFY THIS
                     img_transform = Affine.scale(scale_factor, scale_factor)
 
                     memfile = MemoryFile()
@@ -464,6 +465,7 @@ def spe_to_sfe(
                     with rasterio.open(img_path) as src:
                         src_transform = src.transform
                         # asuming its what flip does from the R/Bioc implementation
+                        # TODO: VERIFY THIS
                         final_transform = Affine(
                             scale_factor,
                             src_transform.b,
