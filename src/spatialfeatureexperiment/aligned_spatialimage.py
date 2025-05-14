@@ -221,6 +221,7 @@ class SpatRasterImage(AlignedSpatialImage):
                         "Transform operations may reflect this new extent.",
                         RuntimeWarning,
                     )
+                    self._src.transform = new_transform
 
         else:
             raise ValueError("img must be a rasterio.DatasetReader or numpy.ndarray.")
@@ -344,13 +345,14 @@ class SpatRasterImage(AlignedSpatialImage):
             height = obj._src.height
             x_res = (obj._extent["xmax"] - obj._extent["xmin"]) / width
             y_res = (obj._extent["ymax"] - obj._extent["ymin"]) / height
-            obj._src.transform = rasterio.transform.from_origin(
-                obj._extent["xmin"], obj._extent["ymax"], x_res, abs(y_res)
-            )
+
             warn(
                 f"Extent set. Note: The underlying rasterio.DatasetReader's transform is not modified in-place. "
                 f"The new extent will be used for future operations originating from this {type(self).__name__} object.",
                 UserWarning,
+            )
+            obj._src.transform = rasterio.transform.from_origin(
+                obj._extent["xmin"], obj._extent["ymax"], x_res, abs(y_res)
             )
 
         return obj
@@ -787,6 +789,9 @@ class BioFormatsImage(AlignedSpatialImage):
         return self._transformation_list
 
     # TODO: implement a transformation setter.
+    @transformation.setter
+    def transformation(self):
+        raise NotImplementedError("Setting transformations are not supported.")
 
     def get_dimensions(self) -> Tuple[int, int, int, int, int]:
         """Get the dimensions of the image (X, Y, C, Z, T) from metadata.
@@ -829,6 +834,9 @@ class BioFormatsImage(AlignedSpatialImage):
 
         Defaulting to scene 0.
         """
+        raise NotImplementedError("method not implemented!")
+
+    def to_ext_image(self) -> "ExtImage":
         raise NotImplementedError("method not implemented!")
 
 
