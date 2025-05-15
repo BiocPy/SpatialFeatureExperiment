@@ -58,12 +58,12 @@ def sfe():
     }
 
     # TODO: construct a valid spatial graph obj
-    
+
     sfe_instance = SpatialFeatureExperiment(
         assays={"spots": counts},
         col_geometries=colgeoms,
         row_geometries=rowgeoms,
         annot_geometries=annotgeoms,
     )
-    
+
     return sfe_instance

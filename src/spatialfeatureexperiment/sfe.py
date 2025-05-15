@@ -6,16 +6,9 @@ import geopandas as gpd
 import numpy as np
 from biocframe import BiocFrame
 from spatialexperiment import SpatialExperiment
-from spatialexperiment._validators import (
-    _validate_column_data,
-    _validate_sample_ids
-)
+from spatialexperiment._validators import _validate_column_data, _validate_sample_ids
 from libpysal.graph import Graph
-from spatialexperiment.spatialexperiment import (
-    SpatialExperiment,
-    _validate_column_data,
-    _validate_sample_ids
-)
+from spatialexperiment.spatialexperiment import SpatialExperiment, _validate_column_data, _validate_sample_ids
 from summarizedexperiment._frameutils import _sanitize_frame
 from summarizedexperiment.RangedSummarizedExperiment import GRangesOrGRangesList
 
