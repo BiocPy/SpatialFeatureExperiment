@@ -8,7 +8,7 @@ import numpy as np
 import rasterio
 import rasterio.transform
 from PIL import Image
-from spatialexperiment.SpatialImage import VirtualSpatialImage
+from spatialexperiment import VirtualSpatialImage
 
 __author__ = "jkanche"
 __copyright__ = "jkanche"

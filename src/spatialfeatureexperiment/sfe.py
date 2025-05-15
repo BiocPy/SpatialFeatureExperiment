@@ -5,10 +5,10 @@ import biocutils as ut
 import geopandas as gpd
 import numpy as np
 from biocframe import BiocFrame
-from spatialexperiment.SpatialExperiment import (
-    SpatialExperiment,
+from spatialexperiment import SpatialExperiment
+from spatialexperiment._validators import (
     _validate_column_data,
-    _validate_sample_ids,
+    _validate_sample_ids
 )
 from summarizedexperiment._frameutils import _sanitize_frame
 from summarizedexperiment.RangedSummarizedExperiment import GRangesOrGRangesList
@@ -55,7 +55,7 @@ def _validate_annotgeometries(geometries, column_data):
     if geometries is None or len(geometries) == 0:
         return
 
-    sample_ids = column_data.get("sample_id")
+    sample_ids = column_data.get_column("sample_id")
     if sample_ids is None:
         raise ValueError("No 'sample_id' column in 'column_data'")
 
@@ -790,3 +790,27 @@ class SpatialFeatureExperiment(SpatialExperiment):
             return output.set_column_names(cols.row_names, in_place=in_place)
 
         return output
+
+    ################################
+    ######>> AnnData interop <<#####
+    ################################
+
+    def to_anndata(self, include_alternative_experiments: bool = False) -> "anndata.AnnData":
+        """Transform :py:class:`~SpatialFeatureExperiment`-like into a :py:class:`~anndata.AnnData` representation.
+
+        Args:
+            include_alternative_experiments:
+                Whether to transform alternative experiments.
+
+        Returns:
+            An ``AnnData`` representation of the experiment.
+        """
+        obj, alt_exps = super().to_anndata(include_alternative_experiments=include_alternative_experiments)
+
+        obj.uns["spatial"]["col_geometries"] = self.col_geometries
+        obj.uns["spatial"]["row_geometries"] = self.row_geometries
+        obj.uns["spatial"]["annot_geometries"] = self.annot_geometries
+        obj.uns["spatial"]["spatial_graphs"] = self.spatial_graphs
+        obj.uns["spatial"]["unit"] = self.unit
+
+        return obj, alt_exps
