@@ -1,6 +1,6 @@
 # Changelog
 
-## Version 0.0.4
+## Version 0.0.4-0.0.5
 
 - Implement `to_anndata()` to convert from spatial feature experiment to AnnData
 
