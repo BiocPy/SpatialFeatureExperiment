@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>spatialfeatureexperiment.sfe - SpatialFeatureExperiment 0.0.4 documentation</title>
+        <title>spatialfeatureexperiment.sfe - SpatialFeatureExperiment 0.0.5 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -166,7 +166,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">SpatialFeatureExperiment 0.0.4 documentation</div></a>
+      <a href="../../index.html"><div class="brand">SpatialFeatureExperiment 0.0.5 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -190,7 +190,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">SpatialFeatureExperiment 0.0.4 documentation</span>
+  <span class="sidebar-brand-text">SpatialFeatureExperiment 0.0.5 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -243,7 +243,7 @@
         </div>
         <article role="main" id="furo-main-content">
           <h1>Source code for spatialfeatureexperiment.sfe</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Tuple</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="kn">import</span> <span class="n">warn</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">biocutils</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ut</span>
@@ -1090,15 +1090,26 @@
 
 <div class="viewcode-block" id="SpatialFeatureExperiment.to_anndata">
 <a class="viewcode-back" href="../../api/spatialfeatureexperiment.html#spatialfeatureexperiment.sfe.SpatialFeatureExperiment.to_anndata">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">to_anndata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">include_alternative_experiments</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;anndata.AnnData&quot;</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_anndata</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">include_alternative_experiments</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="s2">&quot;anndata.AnnData&quot;</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;anndata.AnnData&quot;</span><span class="p">]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Transform :py:class:`~SpatialFeatureExperiment`-like into a :py:class:`~anndata.AnnData` representation.</span>
+
+<span class="sd">        This method extends the :py:meth:`~SpatialExperiment.to_anndata` method from the parent class</span>
+<span class="sd">        by adding SpatialFeatureExperiment-specific elements to the AnnData object&#39;s `uns[&quot;spatial&quot;]`</span>
+<span class="sd">        dictionary. The additional elements include:</span>
+<span class="sd">            - `col_geometries`</span>
+<span class="sd">            - `row_geometries`</span>
+<span class="sd">            - `annot_geometries`</span>
+<span class="sd">            - `spatial_graphs`</span>
+<span class="sd">            - `unit`</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            include_alternative_experiments:</span>
 <span class="sd">                Whether to transform alternative experiments.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            An ``AnnData`` representation of the experiment.</span>
+<span class="sd">            A tuple containing an ``AnnData`` object with spatial information and a list of alternative experiments.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">obj</span><span class="p">,</span> <span class="n">alt_exps</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">to_anndata</span><span class="p">(</span><span class="n">include_alternative_experiments</span><span class="o">=</span><span class="n">include_alternative_experiments</span><span class="p">)</span>
 
@@ -1234,7 +1245,7 @@
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=8c5712d9"></script>
+</div><script src="../../_static/documentation_options.js?v=282f96c0"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
