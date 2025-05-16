@@ -790,11 +790,13 @@ class SpatialFeatureExperiment(SpatialExperiment):
     ######>> AnnData interop <<#####
     ################################
 
-    def to_anndata(self, include_alternative_experiments: bool = False) -> Tuple["anndata.AnnData", Dict[str, "anndata.AnnData"]]:
+    def to_anndata(
+        self, include_alternative_experiments: bool = False
+    ) -> Tuple["anndata.AnnData", Dict[str, "anndata.AnnData"]]:
         """Transform :py:class:`~SpatialFeatureExperiment`-like into a :py:class:`~anndata.AnnData` representation.
 
         This method extends the :py:meth:`~SpatialExperiment.to_anndata` method from the parent class
-        by adding SpatialFeatureExperiment-specific elements to the AnnData object's `uns["spatial"]` 
+        by adding SpatialFeatureExperiment-specific elements to the AnnData object's `uns["spatial"]`
         dictionary. The additional elements include:
             - `col_geometries`
             - `row_geometries`
