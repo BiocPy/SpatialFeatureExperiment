@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.1.0
+
+- Migrating changes related to SPE and SCE.
+
 ## Version 0.0.4-0.0.5
 
 - Implement `to_anndata()` to convert from spatial feature experiment to AnnData
