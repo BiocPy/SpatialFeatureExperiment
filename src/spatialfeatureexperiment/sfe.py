@@ -1,13 +1,15 @@
-from typing import Any, Dict, List, Optional, Union, Tuple
+from __future__ import annotations
+
+from typing import Any, Dict, List, Optional, Tuple, Union
 from warnings import warn
 
 import biocutils as ut
 import geopandas as gpd
 import numpy as np
 from biocframe import BiocFrame
+from libpysal.graph import Graph
 from spatialexperiment import SpatialExperiment
 from spatialexperiment._validators import _validate_column_data, _validate_sample_ids
-from libpysal.graph import Graph
 from summarizedexperiment._frameutils import _sanitize_frame
 from summarizedexperiment.RangedSummarizedExperiment import GRangesOrGRangesList
 
@@ -105,7 +107,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         column_data: Optional[BiocFrame] = None,
         row_names: Optional[List[str]] = None,
         column_names: Optional[List[str]] = None,
-        metadata: Optional[dict] = None,
+        metadata: Optional[Union[Dict[str, Any], ut.NamedList]] = None,
         reduced_dims: Optional[Dict[str, Any]] = None,
         main_experiment_name: Optional[str] = None,
         alternative_experiments: Optional[Dict[str, Any]] = None,
@@ -120,7 +122,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         annot_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
         spatial_graphs: Optional[Dict[str, Union[Graph, Any]]] = None,
         unit: str = "full_res_image_pixel",
-        validate: bool = True,
+        _validate: bool = True,
         **kwargs,
     ) -> None:
         """Initialize a spatial feature class.
@@ -253,7 +255,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
             unit:
                 Unit for spatial coordinates ('full_res_image_pixel' or 'micron').
 
-            validate:
+            _validate:
                 Internal use only.
         """
         # Initialize parent class
@@ -273,7 +275,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
             alternative_experiment_check_dim_names=alternative_experiment_check_dim_names,
             img_data=img_data,
             spatial_coords=spatial_coords,
-            validate=validate,
+            _validate=_validate,
             **kwargs,
         )
 
@@ -286,7 +288,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         )
         self._unit = unit
 
-        if validate:
+        if _validate:
             self._validate()
 
     def _validate(self) -> None:
@@ -356,6 +358,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
             annot_geometries=_annot_geometries_copy,
             spatial_graphs=_spatial_graphs_copy,
             unit=_unit_copy,
+            _validate=False,
         )
 
     def __copy__(self):
@@ -384,6 +387,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
             annot_geometries=self._annot_geometries,
             spatial_graphs=self._spatial_graphs,
             unit=self._unit,
+            _validate=False,
         )
 
     def copy(self):
@@ -447,7 +451,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         """Get the coordinate unit."""
         return self._unit
 
-    def set_unit(self, unit: str, in_place: bool = False) -> "SpatialFeatureExperiment":
+    def set_unit(self, unit: str, in_place: bool = False) -> SpatialFeatureExperiment:
         """Set the coordinate unit.
 
         Args:
@@ -499,7 +503,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
 
     def set_col_geometries(
         self, geometries: Dict[str, gpd.GeoDataFrame], in_place: bool = False
-    ) -> "SpatialFeatureExperiment":
+    ) -> SpatialFeatureExperiment:
         """Set column geometries.
 
         Args:
@@ -521,7 +525,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
 
     def set_row_geometries(
         self, geometries: Dict[str, gpd.GeoDataFrame], in_place: bool = False
-    ) -> "SpatialFeatureExperiment":
+    ) -> SpatialFeatureExperiment:
         """Set row geometries.
 
         Args:
@@ -543,7 +547,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
 
     def set_annot_geometries(
         self, geometries: Dict[str, gpd.GeoDataFrame], in_place: bool = False
-    ) -> "SpatialFeatureExperiment":
+    ) -> SpatialFeatureExperiment:
         """Set annotation geometries.
 
         Args:
@@ -615,7 +619,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         """Get spatial neighborhood graphs."""
         return self._spatial_graphs
 
-    def set_spatial_graphs(self, graphs: Optional[BiocFrame], in_place: bool = False) -> "SpatialFeatureExperiment":
+    def set_spatial_graphs(self, graphs: Optional[BiocFrame], in_place: bool = False) -> SpatialFeatureExperiment:
         """Set spatial neighborhood graphs.
 
         Args:
@@ -658,7 +662,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         self,
         rows: Optional[Union[str, int, bool, List]] = None,
         columns: Optional[Union[str, int, bool, List]] = None,
-    ) -> "SpatialFeatureExperiment":
+    ) -> SpatialFeatureExperiment:
         """Get a slice of the experiment.
 
         Args:
@@ -746,7 +750,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         cols: Optional[BiocFrame],
         replace_column_names: bool = False,
         in_place: bool = False,
-    ) -> "SpatialFeatureExperiment":
+    ) -> SpatialFeatureExperiment:
         """Override: Set sample data.
 
         Args:
@@ -837,7 +841,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         spatial_graphs: BiocFrame = None,
         spot_diameter: float = None,
         unit: str = None,
-    ) -> "SpatialFeatureExperiment":
+    ) -> SpatialFeatureExperiment:
         """Coerce a :py:class:~`spatialexperiment.SpatialExperiment` to a `SpatialFeatureExperiment`.
 
         Args:
