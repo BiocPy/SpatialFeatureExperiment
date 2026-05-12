@@ -512,7 +512,7 @@ def spe_to_sfe(
             sfe_img_data_bf = BiocFrame(nrows=0, column_names=_images.get_column_names())
     else:
         sfe_img_data_bf = BiocFrame(nrows=0, column_names=_images.get_column_names())
-    
+
     sfe_spatial_coords = spe.get_spatial_coordinates()
 
     alt_exps_final = spe.get_alternative_experiments()
