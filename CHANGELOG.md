@@ -1,8 +1,9 @@
 # Changelog
 
-## Version 0.1.0
+## Version 0.1.0 - 0.1.1
 
 - Migrating changes related to SPE and SCE.
+- Support coercions for objects with no images.
 
 ## Version 0.0.4-0.0.5
 
