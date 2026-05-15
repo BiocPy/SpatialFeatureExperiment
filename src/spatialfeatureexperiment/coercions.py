@@ -507,10 +507,11 @@ def spe_to_sfe(
 
         if valid_img_indices:
             sfe_img_data_bf = _images.get_slice(valid_img_indices, slice(None)).copy()
-
             sfe_img_data_bf.set_column(column="data", value=new_image_objects_list, in_place=True)
         else:
-            sfe_img_data_bf = BiocFrame(nrows=0, column_names=_images.get_column_names())
+            sfe_img_data_bf = BiocFrame(number_of_rows=0, column_names=_images.get_column_names())
+    else:
+        sfe_img_data_bf = BiocFrame(number_of_rows=0, column_names=_images.get_column_names())
 
     sfe_spatial_coords = spe.get_spatial_coordinates()
 
