@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any
 from warnings import warn
 
 import biocutils as ut
@@ -39,7 +39,7 @@ def _sanitize_spatial_graphs(spatial_graph, sample_ids):
     return spatial_graph
 
 
-def _validate_geometries(geometries: Dict[str, gpd.GeoDataFrame], prop_name: str):
+def _validate_geometries(geometries: dict[str, gpd.GeoDataFrame], prop_name: str):
     """Validate geometry objects."""
     if geometries is None or len(geometries) == 0:
         return
@@ -101,26 +101,26 @@ class SpatialFeatureExperiment(SpatialExperiment):
 
     def __init__(
         self,
-        assays: Dict[str, Any] = None,
-        row_ranges: Optional[GRangesOrGRangesList] = None,
-        row_data: Optional[BiocFrame] = None,
-        column_data: Optional[BiocFrame] = None,
-        row_names: Optional[List[str]] = None,
-        column_names: Optional[List[str]] = None,
-        metadata: Optional[Union[Dict[str, Any], ut.NamedList]] = None,
-        reduced_dims: Optional[Dict[str, Any]] = None,
-        main_experiment_name: Optional[str] = None,
-        alternative_experiments: Optional[Dict[str, Any]] = None,
+        assays: dict[str, Any] = None,
+        row_ranges: GRangesOrGRangesList | None = None,
+        row_data: BiocFrame | None = None,
+        column_data: BiocFrame | None = None,
+        row_names: list[str] | None = None,
+        column_names: list[str] | None = None,
+        metadata: dict[str, Any] | ut.NamedList | None = None,
+        reduced_dims: dict[str, Any] | None = None,
+        main_experiment_name: str | None = None,
+        alternative_experiments: dict[str, Any] | None = None,
         alternative_experiment_check_dim_names: bool = True,
-        row_pairs: Optional[Any] = None,
-        column_pairs: Optional[Any] = None,
-        spatial_coords: Optional[Union[BiocFrame, np.ndarray]] = None,
-        img_data: Optional[BiocFrame] = None,
+        row_pairs: Any | None = None,
+        column_pairs: Any | None = None,
+        spatial_coords: BiocFrame | np.ndarray | None = None,
+        img_data: BiocFrame | None = None,
         # SFE args
-        col_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
-        row_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
-        annot_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
-        spatial_graphs: Optional[Dict[str, Union[Graph, Any]]] = None,
+        col_geometries: dict[str, gpd.GeoDataFrame] | None = None,
+        row_geometries: dict[str, gpd.GeoDataFrame] | None = None,
+        annot_geometries: dict[str, gpd.GeoDataFrame] | None = None,
+        spatial_graphs: dict[str, Graph | Any] | None = None,
         unit: str = "full_res_image_pixel",
         _validate: bool = True,
         **kwargs,
@@ -427,19 +427,19 @@ class SpatialFeatureExperiment(SpatialExperiment):
             output += "\nGeometries:\n"
 
             if col_geoms:
-                output += f"col_geometries({str(len(col_geoms))}): {ut.print_truncated_list(list(col_geoms.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
+                output += f"col_geometries({len(col_geoms)!s}): {ut.print_truncated_list(list(col_geoms.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
 
             if row_geoms:
-                output += f"row_geometries({str(len(row_geoms))}): {ut.print_truncated_list(list(row_geoms.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
+                output += f"row_geometries({len(row_geoms)!s}): {ut.print_truncated_list(list(row_geoms.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
 
             if annot_geoms:
-                output += f"annot_geometries({str(len(annot_geoms))}): {ut.print_truncated_list(list(annot_geoms.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
+                output += f"annot_geometries({len(annot_geoms)!s}): {ut.print_truncated_list(list(annot_geoms.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
 
         # Add graphs info
         graphs = self._spatial_graphs
         if graphs is not None:
             output += "Graphs:"
-            output += f"spatial_graphs({str(len(graphs))}):{ut.print_truncated_list(list(graphs.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
+            output += f"spatial_graphs({len(graphs)!s}):{ut.print_truncated_list(list(graphs.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
 
         return output
 
@@ -489,20 +489,20 @@ class SpatialFeatureExperiment(SpatialExperiment):
     #####>> geoms <<#####
     #####################
 
-    def get_col_geometries(self) -> Dict[str, gpd.GeoDataFrame]:
+    def get_col_geometries(self) -> dict[str, gpd.GeoDataFrame]:
         """Get column geometries."""
         return self._col_geometries
 
-    def get_row_geometries(self) -> Dict[str, gpd.GeoDataFrame]:
+    def get_row_geometries(self) -> dict[str, gpd.GeoDataFrame]:
         """Get row geometries."""
         return self._row_geometries
 
-    def get_annot_geometries(self) -> Dict[str, gpd.GeoDataFrame]:
+    def get_annot_geometries(self) -> dict[str, gpd.GeoDataFrame]:
         """Get annotation geometries."""
         return self._annot_geometries
 
     def set_col_geometries(
-        self, geometries: Dict[str, gpd.GeoDataFrame], in_place: bool = False
+        self, geometries: dict[str, gpd.GeoDataFrame], in_place: bool = False
     ) -> SpatialFeatureExperiment:
         """Set column geometries.
 
@@ -524,7 +524,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         return output
 
     def set_row_geometries(
-        self, geometries: Dict[str, gpd.GeoDataFrame], in_place: bool = False
+        self, geometries: dict[str, gpd.GeoDataFrame], in_place: bool = False
     ) -> SpatialFeatureExperiment:
         """Set row geometries.
 
@@ -546,7 +546,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
         return output
 
     def set_annot_geometries(
-        self, geometries: Dict[str, gpd.GeoDataFrame], in_place: bool = False
+        self, geometries: dict[str, gpd.GeoDataFrame], in_place: bool = False
     ) -> SpatialFeatureExperiment:
         """Set annotation geometries.
 
@@ -570,12 +570,12 @@ class SpatialFeatureExperiment(SpatialExperiment):
         return output
 
     @property
-    def col_geometries(self) -> Dict[str, gpd.GeoDataFrame]:
+    def col_geometries(self) -> dict[str, gpd.GeoDataFrame]:
         """Get column geometries."""
         return self.get_col_geometries()
 
     @col_geometries.setter
-    def col_geometries(self, geometries: Dict[str, gpd.GeoDataFrame]):
+    def col_geometries(self, geometries: dict[str, gpd.GeoDataFrame]):
         """Set column geometries."""
         warn(
             "Setting property 'col_geometries' is an in-place operation, use 'set_col_geometries' instead.",
@@ -584,12 +584,12 @@ class SpatialFeatureExperiment(SpatialExperiment):
         self.set_col_geometries(geometries, in_place=True)
 
     @property
-    def row_geometries(self) -> Dict[str, gpd.GeoDataFrame]:
+    def row_geometries(self) -> dict[str, gpd.GeoDataFrame]:
         """Get row geometries."""
         return self.get_row_geometries()
 
     @row_geometries.setter
-    def row_geometries(self, geometries: Dict[str, gpd.GeoDataFrame]):
+    def row_geometries(self, geometries: dict[str, gpd.GeoDataFrame]):
         """Set row geometries."""
         warn(
             "Setting property 'row_geometries' is an in-place operation, use 'set_row_geometries' instead.",
@@ -598,12 +598,12 @@ class SpatialFeatureExperiment(SpatialExperiment):
         self.set_row_geometries(geometries, in_place=True)
 
     @property
-    def annot_geometries(self) -> Dict[str, gpd.GeoDataFrame]:
+    def annot_geometries(self) -> dict[str, gpd.GeoDataFrame]:
         """Get annotation geometries."""
         return self.get_annot_geometries()
 
     @annot_geometries.setter
-    def annot_geometries(self, geometries: Dict[str, gpd.GeoDataFrame]):
+    def annot_geometries(self, geometries: dict[str, gpd.GeoDataFrame]):
         """Set annotation geometries."""
         warn(
             "Setting property 'annot_geometries' is an in-place operation, use 'set_annot_geometries' instead.",
@@ -615,11 +615,11 @@ class SpatialFeatureExperiment(SpatialExperiment):
     #####>> spatial_graphs <<#####
     ##############################
 
-    def get_spatial_graphs(self) -> Optional[BiocFrame]:
+    def get_spatial_graphs(self) -> BiocFrame | None:
         """Get spatial neighborhood graphs."""
         return self._spatial_graphs
 
-    def set_spatial_graphs(self, graphs: Optional[BiocFrame], in_place: bool = False) -> SpatialFeatureExperiment:
+    def set_spatial_graphs(self, graphs: BiocFrame | None, in_place: bool = False) -> SpatialFeatureExperiment:
         """Set spatial neighborhood graphs.
 
         Args:
@@ -641,12 +641,12 @@ class SpatialFeatureExperiment(SpatialExperiment):
         return output
 
     @property
-    def spatial_graphs(self) -> Optional[BiocFrame]:
+    def spatial_graphs(self) -> BiocFrame | None:
         """Get spatial graphs."""
         return self.get_spatial_graphs()
 
     @spatial_graphs.setter
-    def spatial_graphs(self, graphs: Optional[BiocFrame]):
+    def spatial_graphs(self, graphs: BiocFrame | None):
         """Set spatial graphs."""
         warn(
             "Setting property 'spatial_graphs' is an in-place operation, use 'set_spatial_graphs' instead.",
@@ -660,8 +660,8 @@ class SpatialFeatureExperiment(SpatialExperiment):
 
     def get_slice(
         self,
-        rows: Optional[Union[str, int, bool, List]] = None,
-        columns: Optional[Union[str, int, bool, List]] = None,
+        rows: str | int | bool | list | None = None,
+        columns: str | int | bool | list | None = None,
     ) -> SpatialFeatureExperiment:
         """Get a slice of the experiment.
 
@@ -747,7 +747,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
 
     def set_column_data(
         self,
-        cols: Optional[BiocFrame],
+        cols: BiocFrame | None,
         replace_column_names: bool = False,
         in_place: bool = False,
     ) -> SpatialFeatureExperiment:
@@ -796,7 +796,7 @@ class SpatialFeatureExperiment(SpatialExperiment):
 
     def to_anndata(
         self, include_alternative_experiments: bool = False
-    ) -> Tuple["anndata.AnnData", Dict[str, "anndata.AnnData"]]:
+    ) -> tuple[anndata.AnnData, dict[str, anndata.AnnData]]:
         """Transform :py:class:`~SpatialFeatureExperiment`-like into a :py:class:`~anndata.AnnData` representation.
 
         This method extends the :py:meth:`~SpatialExperiment.to_anndata` method from the parent class
@@ -833,9 +833,9 @@ class SpatialFeatureExperiment(SpatialExperiment):
     def from_spatial_experiment(
         cls,
         input: SpatialExperiment,
-        row_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
-        column_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
-        annotation_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
+        row_geometries: dict[str, gpd.GeoDataFrame] | None = None,
+        column_geometries: dict[str, gpd.GeoDataFrame] | None = None,
+        annotation_geometries: dict[str, gpd.GeoDataFrame] | None = None,
         spatial_coordinates_names: list = None,
         annotation_geometry_type: str = "POLYGON",
         spatial_graphs: BiocFrame = None,

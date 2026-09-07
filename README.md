@@ -33,7 +33,7 @@ polys = gpd.GeoSeries(
     ]
 )
 
-colgeoms = {"polygons" : gpd.GeoDataFrame({"geometry": polys})}
+colgeoms = {"polygons": gpd.GeoDataFrame({"geometry": polys})}
 tspe = SpatialFeatureExperiment(assays={"spots": counts}, col_geometries=colgeoms)
 ```
 
