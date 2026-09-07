@@ -1,4 +1,4 @@
-from typing import Any, Dict, Literal, Optional, Union
+from typing import Any, Literal
 from warnings import warn
 
 import geopandas as gpd
@@ -25,7 +25,7 @@ def dataframe_to_geopandas(
     spatial_coordinates_names: list = None,
     spot_diameter: float = None,
     buffer_radius: float = 1.0,
-    vertices_col: Optional[str] = None,  # specifically for POLYGON/MULTIPOINT from lists of coords
+    vertices_col: str | None = None,  # specifically for POLYGON/MULTIPOINT from lists of coords
     geometry_type: Literal["POINT", "POLYGON", "MULTIPOINT"] = "POINT",
     end_cap_style: Literal["ROUND", "FLAT", "SQUARE"] = "ROUND",
 ) -> gpd.GeoDataFrame:
@@ -134,9 +134,9 @@ def df_dict_to_gdf_dict(
     geometry_type: Literal["POINT", "POLYGON", "MULTIPOINT"] = "POINT",
     spot_diameter: float = None,
     buffer_radius: float = 1.0,
-    vertices_col: Optional[str] = None,
+    vertices_col: str | None = None,
     end_cap_style: Literal["ROUND", "FLAT", "SQUARE"] = "ROUND",
-) -> Dict[str, gpd.GeoDataFrame]:
+) -> dict[str, gpd.GeoDataFrame]:
     """Convert a list of DataFrames to a list of GeoPandas DataFrames.
 
     Args:
@@ -230,17 +230,17 @@ def spatial_coords_to_col_geometries(
 
 def spe_to_sfe(
     spe: SpatialExperiment,
-    row_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
-    column_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
-    annotation_geometries: Optional[Dict[str, gpd.GeoDataFrame]] = None,
+    row_geometries: dict[str, gpd.GeoDataFrame] | None = None,
+    column_geometries: dict[str, gpd.GeoDataFrame] | None = None,
+    annotation_geometries: dict[str, gpd.GeoDataFrame] | None = None,
     spatial_coordinates_names: list = None,
     row_geometry_type: Literal["POINT", "POLYGON", "MULTIPOINT"] = "POINT",
     annotation_geometry_type: Literal["POINT", "POLYGON", "MULTIPOINT"] = "POLYGON",
-    vertices_col_row: Optional[str] = None,
-    vertices_col_annot: Optional[str] = None,
+    vertices_col_row: str | None = None,
+    vertices_col_annot: str | None = None,
     buffer_radius_row: float = 1.0,
     buffer_radius_annot: float = 1.0,
-    spatial_graphs: Optional[Dict[str, Union[Graph, Any]]] = None,
+    spatial_graphs: dict[str, Graph | Any] | None = None,
     spot_diameter: float = None,
     unit: str = None,
     end_cap_style: Literal["ROUND", "FLAT", "SQUARE"] = "ROUND",

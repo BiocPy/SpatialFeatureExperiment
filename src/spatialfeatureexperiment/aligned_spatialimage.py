@@ -1,7 +1,7 @@
 import math
 import os
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any
 from warnings import warn
 
 import biocutils as ut
@@ -16,7 +16,7 @@ __copyright__ = "jkanche"
 __license__ = "MIT"
 
 
-def _validate_extent(extent: Dict[str, float]):
+def _validate_extent(extent: dict[str, float]):
     required_keys = ["xmin", "xmax", "ymin", "ymax"]
     if not all(k in extent for k in required_keys):
         raise ValueError(f"Extent must contain keys: {', '.join(required_keys)}.")
@@ -25,7 +25,7 @@ def _validate_extent(extent: Dict[str, float]):
         raise ValueError("Invalid extent: xmin must be < xmax and ymin must be < ymax.")
 
 
-def _transform_extent(extent: Dict[str, float], affine_matrix: Optional[np.ndarray] = None) -> Dict[str, float]:
+def _transform_extent(extent: dict[str, float], affine_matrix: np.ndarray | None = None) -> dict[str, float]:
     """Transforms an extent (bounding box) by an affine matrix.
 
     If no matrix is provided, returns the original extent.
@@ -79,7 +79,7 @@ class AlignedSpatialImage(VirtualSpatialImage):
     All images in `SpatialFeatureExperiment` have an extent in spatial coordinates.
     """
 
-    def __init__(self, metadata: Optional[dict] = None):
+    def __init__(self, metadata: dict | None = None):
         """Initializes the AlignedSpatialImage.
 
         Args:
@@ -89,7 +89,7 @@ class AlignedSpatialImage(VirtualSpatialImage):
         super().__init__(metadata=metadata)
         self._extent = {}
 
-    def get_extent(self) -> Dict[str, float]:
+    def get_extent(self) -> dict[str, float]:
         """Get the spatial extent of the image.
 
         Subclasses must implement this to return their specific extent.
@@ -99,7 +99,7 @@ class AlignedSpatialImage(VirtualSpatialImage):
         """
         raise NotImplementedError("Subclasses must implement `get_extent`")
 
-    def set_extent(self, extent: Dict[str, float], in_place: bool = False) -> "AlignedSpatialImage":
+    def set_extent(self, extent: dict[str, float], in_place: bool = False) -> "AlignedSpatialImage":
         """Set the spatial extent of the image.
 
         Subclasses must implement this.
@@ -118,12 +118,12 @@ class AlignedSpatialImage(VirtualSpatialImage):
         raise NotImplementedError("Subclasses must implement `set_extent`")
 
     @property
-    def extent(self) -> Dict[str, float]:
+    def extent(self) -> dict[str, float]:
         """Alias for :py:meth:`~get_extent`."""
         return self.get_extent()
 
     @extent.setter
-    def extent(self, value: Dict[str, float]):
+    def extent(self, value: dict[str, float]):
         """Alias for :py:attr:`~set_extent` with ``in_place = True``.
 
         As this mutates the original object, a warning is raised.
@@ -144,9 +144,9 @@ class SpatRasterImage(AlignedSpatialImage):
 
     def __init__(
         self,
-        image: Union[rasterio.DatasetReader, np.ndarray],
-        extent: Optional[Dict[str, float]] = None,
-        metadata: Optional[dict] = None,
+        image: rasterio.DatasetReader | np.ndarray,
+        extent: dict[str, float] | None = None,
+        metadata: dict | None = None,
     ):
         """Initialize a `SpatRasterImage`.
 
@@ -164,9 +164,9 @@ class SpatRasterImage(AlignedSpatialImage):
             metadata: Additional image metadata. Defaults to None.
         """
         super().__init__(metadata=metadata)
-        self._src: Optional[rasterio.DatasetReader] = None
+        self._src: rasterio.DatasetReader | None = None
         self._in_memory: bool = False
-        self._img_source: Optional[str] = None
+        self._img_source: str | None = None
 
         if isinstance(image, np.ndarray):
             if extent is None:
@@ -226,7 +226,7 @@ class SpatRasterImage(AlignedSpatialImage):
         else:
             raise ValueError("img must be a rasterio.DatasetReader or numpy.ndarray.")
 
-    def _numpy_array_to_rasterio(self, array: np.ndarray, extent: Dict[str, float]) -> rasterio.io.MemoryFile:
+    def _numpy_array_to_rasterio(self, array: np.ndarray, extent: dict[str, float]) -> rasterio.io.MemoryFile:
         """Converts a numpy array to an in-memory rasterio dataset."""
         from rasterio.io import MemoryFile
 
@@ -307,7 +307,7 @@ class SpatRasterImage(AlignedSpatialImage):
         output += f"in_memory: {self._in_memory}\n"
         if self._img_source:
             output += f"img_source: {self._img_source}\n"
-        output += f"metadata({str(len(self.metadata))}): {ut.print_truncated_list(list(self.metadata.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
+        output += f"metadata({len(self.metadata)!s}): {ut.print_truncated_list(list(self.metadata.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
 
         return output
 
@@ -315,7 +315,7 @@ class SpatRasterImage(AlignedSpatialImage):
     ######>> accessors <<######
     ###########################
 
-    def img_source(self, as_path: bool = False) -> Optional[str]:
+    def img_source(self, as_path: bool = False) -> str | None:
         """Get the source file path if available."""
         if (
             self._in_memory
@@ -327,11 +327,11 @@ class SpatRasterImage(AlignedSpatialImage):
 
         return self._img_source
 
-    def get_extent(self) -> Dict[str, float]:
+    def get_extent(self) -> dict[str, float]:
         """Get the extent of the image."""
         return self._extent.copy()
 
-    def set_extent(self, extent: Dict[str, float], in_place: bool = False) -> "SpatRasterImage":
+    def set_extent(self, extent: dict[str, float], in_place: bool = False) -> "SpatRasterImage":
         """Set the extent of the image."""
         _validate_extent(extent)
 
@@ -380,8 +380,8 @@ class SpatRasterImage(AlignedSpatialImage):
 
     def img_raster(
         self,
-        window: Optional[rasterio.windows.Window] = None,
-        out_shape: Optional[Tuple[int, int, int]] = None,
+        window: rasterio.windows.Window | None = None,
+        out_shape: tuple[int, int, int] | None = None,
         resampling_method_str: str = "nearest",
     ) -> np.ndarray:
         """Load the image data as a numpy array.
@@ -412,14 +412,14 @@ class SpatRasterImage(AlignedSpatialImage):
         raise RuntimeError("Image source (_src) is not available.")
 
     @property
-    def shape(self) -> Tuple[int, int, int]:
+    def shape(self) -> tuple[int, int, int]:
         """Get the shape of the image (height, width, channels/bands).
 
         This matches common numpy/PIL dimension order after loading.
         """
         return self.get_dimensions()
 
-    def get_dimensions(self) -> Tuple[int, int, int]:
+    def get_dimensions(self) -> tuple[int, int, int]:
         """Get the dimensions of the image (height, width, channels/count).
 
         Returns:
@@ -451,9 +451,7 @@ class SpatRasterImage(AlignedSpatialImage):
 
         raise RuntimeError("Image source (_src) is not available.")
 
-    def to_ext_image(
-        self, maxcell: Optional[int] = None, channel: Optional[Union[int, List[int]]] = None
-    ) -> "ExtImage":
+    def to_ext_image(self, maxcell: int | None = None, channel: int | list[int] | None = None) -> "ExtImage":
         """Convert this `SpatRasterImage` to an `ExtImage` (in-memory PIL/numpy based).
 
         Args:
@@ -485,12 +483,12 @@ class SpatRasterImage(AlignedSpatialImage):
                 f"Image downsampled from {current_width}x{current_height} to {target_width}x{target_height} to meet maxcell={maxcell}"
             )
 
-        out_shape: Optional[Tuple[int, int, int]] = None
+        out_shape: tuple[int, int, int] | None = None
         if target_height != current_height or target_width != current_width:
             out_shape = (num_channels, target_height, target_width)
 
         # Select channels
-        bands_to_read: Optional[Union[int, List[int]]] = None
+        bands_to_read: int | list[int] | None = None
         if channel is not None:
             if isinstance(channel, int):
                 bands_to_read = channel + 1
@@ -529,12 +527,12 @@ class BioFormatsImage(AlignedSpatialImage):
 
     def __init__(
         self,
-        path: Union[str, Path],
-        extent: Optional[Dict[str, float]] = None,
+        path: str | Path,
+        extent: dict[str, float] | None = None,
         is_full: bool = True,
-        origin: Optional[List[float]] = None,
-        transformation: Optional[Union[List[Dict[str, Any]], np.ndarray]] = None,
-        metadata: Optional[dict] = None,
+        origin: list[float] | None = None,
+        transformation: list[dict[str, Any]] | np.ndarray | None = None,
+        metadata: dict | None = None,
         validate: bool = True,
     ):
         """Initialize the BioFormatsImage.
@@ -572,8 +570,8 @@ class BioFormatsImage(AlignedSpatialImage):
         self._is_full = is_full
         self._origin = [0.0, 0.0] if origin is None else origin
 
-        self._transformation_list: List[Dict[str, Any]] = []
-        self._combined_affine_matrix: Optional[np.ndarray] = None
+        self._transformation_list: list[dict[str, Any]] = []
+        self._combined_affine_matrix: np.ndarray | None = None
 
         if transformation is not None:
             if isinstance(transformation, np.ndarray):
@@ -612,7 +610,7 @@ class BioFormatsImage(AlignedSpatialImage):
             raise RuntimeError(f"Error initializing AICSImage for {self._path}: {e}")
 
     #  method written by llm
-    def _infer_full_extent(self) -> Dict[str, float]:
+    def _infer_full_extent(self) -> dict[str, float]:
         """Infers the full spatial extent from image metadata using aicsimageio."""
         try:
             img = self._get_aicsimage()
@@ -675,7 +673,7 @@ class BioFormatsImage(AlignedSpatialImage):
     def __repr__(self):
         dims = self.get_dimensions()  # X, Y, C, Z, T
         dim_str = f"X:{dims[0]}, Y:{dims[1]}, C:{dims[2]}, Z:{dims[3]}, T:{dims[4]}"
-        output = f"{type(self).__name__}(path='{str(self._path)}', dims=({dim_str})"
+        output = f"{type(self).__name__}(path='{self._path!s}', dims=({dim_str})"
 
         if len(self.metadata) > 0:
             output += ", metadata=" + ut.print_truncated_dict(self.metadata)
@@ -685,7 +683,7 @@ class BioFormatsImage(AlignedSpatialImage):
 
     def __str__(self) -> str:
         output = f"class: {type(self).__name__}\n"
-        output += f"path: {str(self._path)}\n"
+        output += f"path: {self._path!s}\n"
         dims = self.get_dimensions()
         output += f"dimensions (X,Y,C,Z,T): {dims[0]}, {dims[1]}, {dims[2]}, {dims[3]}, {dims[4]}\n"
 
@@ -700,7 +698,7 @@ class BioFormatsImage(AlignedSpatialImage):
 
         if self._combined_affine_matrix is not None:
             output += f"combined_affine_matrix: {self._combined_affine_matrix.tolist()}\n"
-        output += f"metadata({str(len(self.metadata))}): {ut.print_truncated_list(list(self.metadata.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
+        output += f"metadata({len(self.metadata)!s}): {ut.print_truncated_list(list(self.metadata.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
 
         return output
 
@@ -727,7 +725,7 @@ class BioFormatsImage(AlignedSpatialImage):
         """Get the source file path."""
         return str(self._path)
 
-    def get_extent(self) -> Dict[str, float]:
+    def get_extent(self) -> dict[str, float]:
         """Get the spatial extent of the image, applying stored transformations to the base extent."""
         if self._combined_affine_matrix is not None:
             return _transform_extent(self._base_extent, self._combined_affine_matrix)
@@ -739,7 +737,7 @@ class BioFormatsImage(AlignedSpatialImage):
 
         return self._base_extent.copy()
 
-    def set_extent(self, extent: Dict[str, float], in_place: bool = False) -> "BioFormatsImage":
+    def set_extent(self, extent: dict[str, float], in_place: bool = False) -> "BioFormatsImage":
         """Set the base spatial extent of the image (pre-transformation).
 
         To change transformations, use the `transformation` property or specific methods.
@@ -764,12 +762,12 @@ class BioFormatsImage(AlignedSpatialImage):
         self._is_full = value
 
     @property
-    def origin(self) -> List[float]:
+    def origin(self) -> list[float]:
         """Spatial coordinates [x, y] of the image's own origin."""
         return self._origin
 
     @origin.setter
-    def origin(self, value: List[float]):
+    def origin(self, value: list[float]):
         """Set the spatial origin [x,y]."""
         if not (isinstance(value, list) and len(value) == 2 and all(isinstance(x, (int, float)) for x in value)):
             raise ValueError("Origin must be a list/tuple of two numbers [x, y].")
@@ -777,7 +775,7 @@ class BioFormatsImage(AlignedSpatialImage):
         self._origin = value
 
     @property
-    def transformation(self) -> Optional[Union[List[Dict[str, Any]], np.ndarray]]:
+    def transformation(self) -> list[dict[str, Any]] | np.ndarray | None:
         """Stored transformation(s) to be applied.
 
         Returns:
@@ -793,7 +791,7 @@ class BioFormatsImage(AlignedSpatialImage):
     def transformation(self):
         raise NotImplementedError("Setting transformations are not supported.")
 
-    def get_dimensions(self) -> Tuple[int, int, int, int, int]:
+    def get_dimensions(self) -> tuple[int, int, int, int, int]:
         """Get the dimensions of the image (X, Y, C, Z, T) from metadata.
 
         This refers to the dimensions of the source image file, not affected by transformations.
@@ -816,15 +814,15 @@ class BioFormatsImage(AlignedSpatialImage):
             return (0, 0, 0, 0, 0)
 
     @property
-    def shape(self) -> Tuple[int, int, int, int, int]:
+    def shape(self) -> tuple[int, int, int, int, int]:
         """Alias for get_dimensions, returning (X,Y,C,Z,T)."""
         return self.get_dimensions()
 
     def img_raster(
         self,
-        resolution: Optional[int] = None,
-        scene: Optional[int] = 0,
-        channel: Optional[Union[int, List[int]]] = None,
+        resolution: int | None = None,
+        scene: int | None = 0,
+        channel: int | list[int] | None = None,
         **kwargs,
     ) -> Image.Image:
         """Load the image data as a PIL Image, applying transformations.
@@ -845,9 +843,9 @@ class ExtImage(AlignedSpatialImage):
 
     def __init__(
         self,
-        image: Union[Image.Image, np.ndarray],
-        extent: Optional[Dict[str, float]] = None,
-        metadata: Optional[dict] = None,
+        image: Image.Image | np.ndarray,
+        extent: dict[str, float] | None = None,
+        metadata: dict | None = None,
     ):
         """Initialize an ExtImage.
 
@@ -866,7 +864,7 @@ class ExtImage(AlignedSpatialImage):
 
         if isinstance(image, np.ndarray):
             self._array: np.ndarray = image.copy()
-            self._pil_image_cache: Optional[Image.Image] = None
+            self._pil_image_cache: Image.Image | None = None
         elif isinstance(image, Image.Image):
             self._array: np.ndarray = np.array(image)
             self._pil_image_cache = image.copy()
@@ -922,7 +920,7 @@ class ExtImage(AlignedSpatialImage):
         )
         output += f"dimensions: {shape_str}\n"
         output += f"extent: xmin={self._extent['xmin']:.2f}, xmax={self._extent['xmax']:.2f}, ymin={self._extent['ymin']:.2f}, ymax={self._extent['ymax']:.2f}\n"
-        output += f"metadata({str(len(self.metadata))}): {ut.print_truncated_list(list(self.metadata.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
+        output += f"metadata({len(self.metadata)!s}): {ut.print_truncated_list(list(self.metadata.keys()), sep=' ', include_brackets=False, transform=lambda y: y)}\n"
 
         return output
 
@@ -936,13 +934,13 @@ class ExtImage(AlignedSpatialImage):
 
     def img_source(self, as_path: bool = False) -> None:
         """Get the source file path (always None for in-memory ExtImage)."""
-        return None
+        return
 
-    def get_extent(self) -> Dict[str, float]:
+    def get_extent(self) -> dict[str, float]:
         """Get the extent of the image."""
         return self._extent.copy()
 
-    def set_extent(self, extent: Dict[str, float], in_place: bool = False) -> "ExtImage":
+    def set_extent(self, extent: dict[str, float], in_place: bool = False) -> "ExtImage":
         """Set the extent of the image."""
         _validate_extent(extent)
         obj = self if in_place else self.copy()
@@ -955,11 +953,11 @@ class ExtImage(AlignedSpatialImage):
         return self._array
 
     @property
-    def shape(self) -> Tuple[int, ...]:
+    def shape(self) -> tuple[int, ...]:
         """Get the shape of the image array (height, width, channels) or (height, width)."""
         return self._array.shape
 
-    def get_dimensions(self) -> Tuple[int, ...]:
+    def get_dimensions(self) -> tuple[int, ...]:
         """Get the dimensions of the image array (height, width, channels) or (height, width)."""
         return self._array.shape
 
